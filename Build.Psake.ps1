@@ -2,7 +2,7 @@ Task default -depends Build
 
 Properties {
     Set-BuildEnvironment
-    
+
     $ProjectRoot = $ENV:BHProjectPath
     $ProjectName = $ENV:BHProjectName
     
@@ -63,9 +63,16 @@ Task Test -depends Help {
 }
 
 
-Task Build {
+Task Build -depends Test {
     $lines
-    Invoke-PSDeploy -Tags Local
+    
+    $Params = @{
+        Path = $ProjectRoot
+        Tags = Local
+        Force = $true            
+    }
+
+    Invoke-PSDeploy @Verbose @Params
 }
 
 
@@ -78,6 +85,7 @@ Task Deploy -Depends Build {
         $Params = @{
             Path = $ProjectRoot
             Force = $true
+            Tags = PSGallery
             Recurse = $false # We keep psdeploy artifacts, avoid deploying those : )
         }
 

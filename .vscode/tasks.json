@@ -71,7 +71,7 @@
             "isBuildCommand": true,
             "showOutput": "always",
             "args": [
-                "Write-Host 'Starting Build'; .\\build.ps1;",
+                "Write-Host 'Starting Build'; Invoke-PSake build.psake.ps1 -taskList Build;",
                 "Invoke-Command { Write-Host 'Completed Build task in task runner.' }"
             ]
         },
