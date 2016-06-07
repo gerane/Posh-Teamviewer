@@ -23,7 +23,7 @@
 
 
 Get-Module $ModuleName | Remove-Module
-Import-Module $ModuleName -RequiredVersion $RequiredVersion -ErrorAction Stop
+Import-Module $Manifest -ErrorAction Stop #-RequiredVersion $RequiredVersion
 $commands = Get-Command -FullyQualifiedModule @{ ModuleName = $ModuleName;  RequiredVersion=$RequiredVersion}
 
 ## When testing help, remember that help is cached at the beginning of each session.

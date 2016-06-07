@@ -1,6 +1,8 @@
 Task default -depends Build
 
 Properties {
+    Set-BuildEnvironment
+    
     $ProjectRoot = $ENV:BHProjectPath
     $ProjectName = $ENV:BHProjectName
     
@@ -13,7 +15,7 @@ Properties {
     $lines = '----------------------------------------------------------------------'
 
     $Verbose = @{}
-    if($ENV:BHCommitMessage -match "!verbose")
+    if ($ENV:BHCommitMessage -match "!verbose")
     {
         $Verbose = @{Verbose = $True}
     }

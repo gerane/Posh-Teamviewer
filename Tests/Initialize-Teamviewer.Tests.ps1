@@ -1,6 +1,7 @@
 Import-Module Pester -ErrorAction Stop
-Import-Module $PSScriptRoot\..\TeamViewer.psd1
+Import-Module $PSScriptRoot\..\Posh-Teamviewer\Posh-TeamViewer.psd1
 
+$Global:TeamviewerAccessToken = $null
 
 InModuleScope 'Posh-Teamviewer' {
 
@@ -8,7 +9,7 @@ InModuleScope 'Posh-Teamviewer' {
         $MasterPassword = ConvertTo-SecureString -String 'FakePassword' -AsPlainText -Force
 
         Context 'Sets Global AccessToken Variable' {
-            Mock Resolve-TeamviewerConfigPath { Return ".\Files" }
+            Mock Resolve-TeamviewerConfigPath { Return (Resolve-Path "$Script:ModuleRoot\..\Tests\Files") }
             Mock Test-Path { Return $true }
             Mock Set-TeamviewerDeviceList {}
 

@@ -1,5 +1,5 @@
 Import-Module Pester -ErrorAction Stop
-Import-Module $PSScriptRoot\..\TeamViewer.psd1
+Import-Module $PSScriptRoot\..\Posh-Teamviewer\Posh-TeamViewer.psd1
 
 $Json = @"
 {  
@@ -37,6 +37,8 @@ $Json = @"
 
 $MockedResults = $Json | ConvertFrom-Json
 
+$Global:TeamviewerAccessToken = $null
+
 InModuleScope 'Posh-Teamviewer' {
 
     Describe 'Set-TeamviewerDeviceList' {
@@ -45,9 +47,9 @@ InModuleScope 'Posh-Teamviewer' {
         Context 'Sets Global Variable' {
             Mock Invoke-RestMethod { Return $MockedResults }
             
-            It 'global variable should not be present' {
-                $Results = Test-Path variable:Global:TeamviewerDeviceList
-                $Results | Should be $false
+            It 'Global Access Token Should not match' {
+                $Results = $Global:TeamviewerAccessToken
+                $Results | Should Not Be 'Fake-AccessTokenText123456789'
             }
 
             $Results = Set-TeamviewerDeviceList -AccessToken $AccessToken
