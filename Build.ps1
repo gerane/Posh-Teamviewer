@@ -6,4 +6,4 @@ Import-Module Psake, BuildHelpers
 
 Set-BuildEnvironment
 
-Invoke-psake .\Build.PSake.ps1 -taskList Build
+Invoke-psake .\Build.PSake.ps1
