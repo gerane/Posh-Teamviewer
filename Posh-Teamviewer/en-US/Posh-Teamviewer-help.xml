@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="utf-8"?>
+<helpItems schema="maml">
+
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Connect-Teamviewer</command:name>
+<command:verb>Connect</command:verb>
+<command:noun>Teamviewer</command:noun>
+<maml:description><maml:para>Connects to a Teamviewer Device
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>Connects to a Teamviewer Device using ComputerName.
+</maml:para>
+<maml:para>Requires a Teamviewer Access Token to be set via Set-TeamviewerAccessToken. If in a new PowerShell Session, you can load a saved Access Token with Initialize-Teamviewer.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Connect-Teamviewer</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>AccessToken</maml:name>
+<maml:Description><maml:para>The Teamviewer Access Token.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>ComputerName</maml:name>
+<maml:Description><maml:para>The name or the alias of the Device to be connected to.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Password</maml:name>
+<maml:Description><maml:para>The Teamviewer Device password.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+<dev:type><maml:name>SecureString</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>UpdateDeviceList</maml:name>
+<maml:Description><maml:para>Update the Devices List Global Variable that the Device information is stored. Teamviewer accounts with a large device list can take a very long time to send a response back with Device Ids. To get around this Device information is gathered and stored when Initialize-Teamviewer is ran to decrypt the Teamviewer Access Token. This allows quick Device information look up. If the information needs to be updated you can either add this switch.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>AccessToken</maml:name>
+<maml:Description><maml:para>The Teamviewer Access Token.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>ComputerName</maml:name>
+<maml:Description><maml:para>The name or the alias of the Device to be connected to.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Password</maml:name>
+<maml:Description><maml:para>The Teamviewer Device password.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+<dev:type><maml:name>SecureString</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>UpdateDeviceList</maml:name>
+<maml:Description><maml:para>Update the Devices List Global Variable that the Device information is stored. Teamviewer accounts with a large device list can take a very long time to send a response back with Device Ids. To get around this Device information is gathered and stored when Initialize-Teamviewer is ran to decrypt the Teamviewer Access Token. This allows quick Device information look up. If the information needs to be updated you can either add this switch.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes><command:inputType><dev:type><maml:name>System.String[]</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:inputType>
+</command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>System.Object</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>Before you can use this Command you need to set you Teamviewer AccessToken with Set-TeamviewerAccessToken or load a previously saved AccessToken with Initialize-Teamviewer.
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+<dev:code>PS C:\&gt; Connect-Teamviewer -ComputerName 'TestName' -Password $SecureString</dev:code>
+<dev:remarks><maml:para>Connects to Teamviewer device using supplied password as Secure String.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+<dev:code>PS C:\&gt; Connect-Teamviewer -ComputerName 'TestName'</dev:code>
+<dev:remarks><maml:para>Connects to Teamviewer device and prompts the User to enter the Device Password.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
+<dev:code>PS C:\&gt; $ComputerList = @('Test1','Test2')
+PS C:\&gt; Connect-Teamviewer -ComputerName $ComputerList</dev:code>
+<dev:remarks><maml:para>Connects to Teamviewer devices Test1 and Test2 and prompts the User to enter the Device Password.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>-------------------------- EXAMPLE 4 --------------------------</maml:title>
+<dev:code>PS C:\&gt; Connect-Teamviewer -ComputerName 'Test'</dev:code>
+<dev:remarks><maml:para>The user is prompted to select a Device from a list of Matches of Devices with the word 'Test' in the name.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>-------------------------- EXAMPLE 5 --------------------------</maml:title>
+<dev:code>PS C:\&gt; Connect-Teamviewer -ComputerName 'TestName' -UpdateDeviceList</dev:code>
+<dev:remarks><maml:para>Updates the stored Device list before connecting to the Device. Requires the Teamviewer AccessToken to be set using Set-TeamviewerAccessToken or Initialize-Teamviewer to load a previously saved one.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Online Version:</maml:linkText>
+<maml:uri>https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Connect-Teamviewer.md</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Create Teamviewer Access Token</maml:linkText>
+<maml:uri>https://integrate.teamviewer.com/en/develop/api/get-started/#createScript</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Teamviewer Api Documentation:</maml:linkText>
+<maml:uri>https://integrate.teamviewer.com/en/develop/api/</maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Initialize-Teamviewer</command:name>
+<command:verb>Initialize</command:verb>
+<command:noun>Teamviewer</command:noun>
+<maml:description><maml:para>Reads the Teamviewer AccessToken stored in the Users Appdata Folder and creates a DeviceList.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>Reads the Teamviewer AccessToken stored in the Users $env:Appdata\Teamviewer Folder and sets a Global variable with it's value. Queries the Teamviewer Api to create a Device List and stores it as a Global variable.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Initialize-Teamviewer</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none"><maml:name>MasterPassword</maml:name>
+<maml:Description><maml:para>The Master Password the AccessToken was Encrypted with using Set-TeamviewerAccessToken.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+<dev:type><maml:name>SecureString</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none"><maml:name>MasterPassword</maml:name>
+<maml:Description><maml:para>The Master Password the AccessToken was Encrypted with using Set-TeamviewerAccessToken.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+<dev:type><maml:name>SecureString</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes><command:inputType><dev:type><maml:name>System.Security.SecureString</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:inputType>
+</command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>System.Object</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>Special thanks to Carlos Perez for the AccessToken Encryption Code.
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+<dev:code>PS C:\&gt; Initialize-Teamviewer -MasterPassword $SecureString</dev:code>
+<dev:remarks><maml:para>Reads the Teamviewer AccessToken and sets the $Global:TeamviewerAccessToken variable. Builds a Device List and sets it as $Global:TeamviewerDeviceList Variable
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+<dev:code>PS C:\&gt; Initialize-Teamviewer</dev:code>
+<dev:remarks><maml:para>Prompts the user for their MasterPassword and then reads the Teamviewer AccessToken and sets the `$Global:TeamviewerAccessToken variable. Builds a Device List and sets it as $Global:TeamviewerDeviceList Variable
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Online Version:</maml:linkText>
+<maml:uri>https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Initialize-Teamviewer.md</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Carlos Perez Github</maml:linkText>
+<maml:uri>https://github.com/darkoperator</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Create Teamviewer Access Token</maml:linkText>
+<maml:uri>https://integrate.teamviewer.com/en/develop/api/get-started/#createScript</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Teamviewer Api Documentation:</maml:linkText>
+<maml:uri>https://integrate.teamviewer.com/en/develop/api/</maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Set-TeamviewerAccessToken</command:name>
+<command:verb>Set</command:verb>
+<command:noun>TeamviewerAccessToken</command:noun>
+<maml:description><maml:para>Encrypts the User's Teamviewer AccessToken and sets the value as a Global Variable.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>Encrypts the User's Teamviewer AccessToken with a Master Password and sets the value as `$Global:TeamviewerAccessToken Variable.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Set-TeamviewerAccessToken</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="none"><maml:name>MasterPassword</maml:name>
+<maml:Description><maml:para>The Master Password the AccessToken will be Encrypted with.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+<dev:type><maml:name>SecureString</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>AccessToken</maml:name>
+<maml:Description><maml:para>The Teamviewer Access Token.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>AccessToken</maml:name>
+<maml:Description><maml:para>The Teamviewer Access Token.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="none"><maml:name>MasterPassword</maml:name>
+<maml:Description><maml:para>The Master Password the AccessToken will be Encrypted with.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+<dev:type><maml:name>SecureString</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes><command:inputType><dev:type><maml:name>System.Security.SecureString</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:inputType>
+</command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>System.Object</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>Special thanks to Carlos Perez for the AccessToken Encryption Code.
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+<dev:code>PS C:\&gt; Set-TeamviewerAccessToken -AccessToken '1234-SWDwf23vawef4122345asfg' -MasterPassword $SecureString</dev:code>
+<dev:remarks><maml:para>Sets the AccessToken using the supplied Secure String Password.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+<dev:code>PS C:\&gt; Set-TeamviewerAccessToken -AccessToken '1234-SWDwf23vawef4122345asfg'</dev:code>
+<dev:remarks><maml:para>Prompts the User for their Master Password and sets the AccessToken.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Online Version:</maml:linkText>
+<maml:uri>https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Set-TeamviewerAccessToken.md</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Carlos Perez Github</maml:linkText>
+<maml:uri>https://github.com/darkoperator</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Create Teamviewer Access Token</maml:linkText>
+<maml:uri>https://integrate.teamviewer.com/en/develop/api/get-started/#createScript</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Teamviewer Api Documentation:</maml:linkText>
+<maml:uri>https://integrate.teamviewer.com/en/develop/api/</maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Set-TeamviewerDeviceList</command:name>
+<command:verb>Set</command:verb>
+<command:noun>TeamviewerDeviceList</command:noun>
+<maml:description><maml:para>Creates a Device List Global Variable with Teamviewer Device Information.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>Creates a Global Variable $Global:TeamviewerDeviceList with a Device List with Teamviewer Device Information that other commands can use without relying on the Teamviewer Api. The Teamviewer Api can be slow if querying a large number of devices.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Set-TeamviewerDeviceList</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none"><maml:name>AccessToken</maml:name>
+<maml:Description><maml:para>The Teamviewer Access Token.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none"><maml:name>AccessToken</maml:name>
+<maml:Description><maml:para>The Teamviewer Access Token.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes><command:inputType><dev:type><maml:name>None</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:inputType>
+</command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>System.Object</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+<dev:code>PS C:\&gt; Set-TeamviewerDeviceList</dev:code>
+<dev:remarks><maml:para>Sets the Device List Global Variable.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Online Version:</maml:linkText>
+<maml:uri>https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Set-TeamviewerDeviceList.md</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Create Teamviewer Access Token</maml:linkText>
+<maml:uri>https://integrate.teamviewer.com/en/develop/api/get-started/#createScript</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Teamviewer Api Documentation:</maml:linkText>
+<maml:uri>https://integrate.teamviewer.com/en/develop/api/</maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Update-TeamviewerDevice</command:name>
+<command:verb>Update</command:verb>
+<command:noun>TeamviewerDevice</command:noun>
+<maml:description><maml:para>Updates Properties of a Teamviewer Device.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>Updates Properties of a Teamviewer Device. Those properties are Alias(Device's Name), Description, and Password.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Update-TeamviewerDevice</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none"><maml:name>ComputerName</maml:name>
+<maml:Description><maml:para>The Name of the Device.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="none"><maml:name>Description</maml:name>
+<maml:Description><maml:para>The Description of the Device.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="2" aliases="none"><maml:name>Alias</maml:name>
+<maml:Description><maml:para>The new Name of the Device.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="3" aliases="none"><maml:name>Password</maml:name>
+<maml:Description><maml:para>The new Password for the Device. This is not the Password set by the Client, but the one saved in Teamviewer for connecting without a Password.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="4" aliases="none"><maml:name>AccessToken</maml:name>
+<maml:Description><maml:para>The Teamviewer AccessToken
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>UpdateDeviceList</maml:name>
+<maml:Description><maml:para>Update the Devices List Global Variable that the Device information is stored. Teamviewer accounts with a large device list can take a very long time to send a response back with Device Ids. To get around this Device information is gathered and stored when Initialize-Teamviewer is ran to decrypt the Teamviewer Access Token. This allows quick Device information look up. If the information needs to be updated you can either add this switch.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="4" aliases="none"><maml:name>AccessToken</maml:name>
+<maml:Description><maml:para>The Teamviewer AccessToken
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="2" aliases="none"><maml:name>Alias</maml:name>
+<maml:Description><maml:para>The new Name of the Device.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none"><maml:name>ComputerName</maml:name>
+<maml:Description><maml:para>The Name of the Device.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="none"><maml:name>Description</maml:name>
+<maml:Description><maml:para>The Description of the Device.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="3" aliases="none"><maml:name>Password</maml:name>
+<maml:Description><maml:para>The new Password for the Device. This is not the Password set by the Client, but the one saved in Teamviewer for connecting without a Password.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>UpdateDeviceList</maml:name>
+<maml:Description><maml:para>Update the Devices List Global Variable that the Device information is stored. Teamviewer accounts with a large device list can take a very long time to send a response back with Device Ids. To get around this Device information is gathered and stored when Initialize-Teamviewer is ran to decrypt the Teamviewer Access Token. This allows quick Device information look up. If the information needs to be updated you can either add this switch.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes><command:inputType><dev:type><maml:name>System.String</maml:name>
+</dev:type>
+<maml:description><maml:para>System.Management.Automation.SwitchParameter
+</maml:para>
+</maml:description>
+</command:inputType>
+</command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>System.Object</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+<dev:code>PS C:\&gt; Update-TeamviewerDevice -ComputerName 'Test1' -Description 'Test Lab Device 1' -Alias 'Test1 (Test Lab)'</dev:code>
+<dev:remarks><maml:para>This command updates the Teamviewer Description and Alias of the Device named 'Test1'.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+<dev:code>PS C:\&gt; Update-TeamviewerDevice -ComputerName 'Test1' -Password $NewPassword</dev:code>
+<dev:remarks><maml:para>This command updates the Teamviewer Password of the Device named 'Test1'.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Online Version:</maml:linkText>
+<maml:uri>https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Update-TeamviewerDevice.md</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Create Teamviewer Access Token</maml:linkText>
+<maml:uri>https://integrate.teamviewer.com/en/develop/api/get-started/#createScript</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Teamviewer Api Documentation:</maml:linkText>
+<maml:uri>https://integrate.teamviewer.com/en/develop/api/</maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+</helpItems>
+
