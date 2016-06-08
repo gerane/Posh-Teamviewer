@@ -42,13 +42,13 @@ The first way To update the Device List is to use **Update-DeviceList**. If you 
 
 ## Commands and Command Help
 
-| Command                       | Help                                                                   |
-|-------------------------------|------------------------------------------------------------------------|
-| **Connect-Teamviewer**        | [Connect-Teamviewer.md](docs/Connect-Teamviewer.md)                    |
-| **Initialize-Teamviewer**     | [Initialize-Teamviewer.md](docs/Initialize-Teamviewer.md)              |
-| **Set-TeamviewerAccessToken** | [Set-TeamviewerAccessToken.md](docs/Set-TeamviewerAccessToken.md)      |
-| **Set-TeamviewerDeviceList**  | [Set-TeamviewerDeviceList.md](docs/Set-TeamviewerDeviceList.md)        |
-| **Update-TeamviewerDevice**   | [Update-TeamviewerDevice.md](docs/Update-TeamviewerDevice.md)          |
+| Command                       | Help                                                                            |
+|-------------------------------|---------------------------------------------------------------------------------|
+| **Connect-Teamviewer**        | [Connect-Teamviewer.md](../Commands/Connect-Teamviewer.md)                    |
+| **Initialize-Teamviewer**     | [Initialize-Teamviewer.md](../Commands/Initialize-Teamviewer.md)              |
+| **Set-TeamviewerAccessToken** | [Set-TeamviewerAccessToken.md](../Commands/Set-TeamviewerAccessToken.md)      |
+| **Set-TeamviewerDeviceList**  | [Set-TeamviewerDeviceList.md](../Commands/Set-TeamviewerDeviceList.md)        |
+| **Update-TeamviewerDevice**   | [Update-TeamviewerDevice.md](../Commands/Update-TeamviewerDevice.md)          |
 
 
 ## Links
