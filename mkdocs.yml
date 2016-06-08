@@ -6,7 +6,7 @@ pages:
 - Getting Started: Setup/Getting-Started.md
 - Commands:
     - Set-TeamViewerAccessToken Help: Commands/Set-TeamviewerAccessToken.md    
-    - Initialize-TeamViewer Help: Commands/Initialize-TeamViewer.md
-    - Connect-TeamViewer Help: Commands/Connect-TeamViewer.md
-    - Set-TeamviewerDeviceList Help: Commands/Set-TeamViewerDeviceList.md
-    - Update-TeamViewerDevice Help: Commands/Update-TeamViewerDevice.md
+    - Initialize-TeamViewer Help: Commands/Initialize-Teamviewer.md
+    - Connect-TeamViewer Help: Commands/Connect-Teamviewer.md
+    - Set-TeamviewerDeviceList Help: Commands/Set-TeamviewerDeviceList.md
+    - Update-TeamViewerDevice Help: Commands/Update-TeamviewerDevice.md
