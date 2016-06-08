@@ -60,6 +60,7 @@ The first way To update the Device List is to use **Update-DeviceList**. If you 
 - Github - [Brandon Padgett](https://github.com/gerane)
 - Twitter - [@brandonpadgett](https://twitter.com/BrandonPadgett)
 - Website - [BrandonPadgett.com](http://brandonpadgett.com)
+- Documentation - [ReadTheDocs](https://readthedocs.org/projects/posh-teamviewer/)
 
 
 ## License
