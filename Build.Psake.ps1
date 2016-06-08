@@ -35,7 +35,15 @@ Task Help -depends Init {
     Remove-Module $ProjectName -ErrorAction SilentlyContinue
     Import-Module "$ProjectRoot\$ProjectName\$ProjectName.psd1"
     
-    New-ExternalHelp docs -OutputPath "$ProjectName\en-US" -Force
+    Try
+    {
+        New-ExternalHelp docs -OutputPath "$ProjectName\en-US" -Force -ErrorAction Stop
+    }
+    Catch
+    {
+        Throw
+    }
+    
     Import-Module "$ProjectRoot\$ProjectName\$ProjectName.psd1" -Force
 }
 
