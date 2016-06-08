@@ -3,3 +3,10 @@ repo_url: https://github.com/gerane/Posh-Teamviewer
 theme: readthedocs
 pages:
 - Home: index.md
+- Getting Started: Setup/Getting-Started.md
+- Commands:
+    - Set-TeamViewerAccessToken Help: Commands/Set-TeamviewerAccessToken.md    
+    - Initialize-TeamViewer Help: Commands/Initialize-TeamViewer.md
+    - Connect-TeamViewer Help: Commands/Connect-TeamViewer.md
+    - Set-TeamviewerDeviceList Help: Commands/Set-TeamViewerDeviceList.md
+    - Update-TeamViewerDevice Help: Commands/Update-TeamViewerDevice.md
