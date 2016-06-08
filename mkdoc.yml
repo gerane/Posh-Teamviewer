@@ -4,7 +4,7 @@ theme: readthedocs
 pages:
 - Home: index.md
 - Setup:
-    - Getting Started: readme.md
+    - Getting Started: getting-started/readme.md
 - Commands:
     - Set-TeamViewerAccessToken Help: Set-TeamviewerAccessToken.md    
     - Initialize-TeamViewer Help: Initialize-TeamViewer.md

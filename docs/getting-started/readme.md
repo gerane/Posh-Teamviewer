@@ -18,7 +18,7 @@ To get started create a Teamviewer script Access Token. For detailed insctructio
 PS> Set-TeamviewerAccessToken -AccessToken '1234-SWDwf23vawef4122345asfg'
 ```
 
-![Set Access Token](/Images/SetAccessToken.gif)
+![Set Access Token](../Images/SetAccessToken.gif)
 
 ## Load Saved Access Token
 
