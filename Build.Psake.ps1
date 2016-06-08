@@ -1,4 +1,4 @@
-Task default -depends Build
+Task default -depends Deploy
 
 Properties {
     Set-BuildEnvironment
