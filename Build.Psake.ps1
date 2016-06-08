@@ -38,13 +38,12 @@ Task Help -depends Init {
     Try
     {
         New-ExternalHelp docs -OutputPath "$ProjectName\en-US" -Force -ErrorAction Stop
+        Import-Module "$ProjectRoot\$ProjectName\$ProjectName.psd1" -Force
     }
     Catch
     {
         Throw
-    }
-    
-    Import-Module "$ProjectRoot\$ProjectName\$ProjectName.psd1" -Force
+    }        
 }
 
 
