@@ -1,5 +1,5 @@
 environment:
-  my_variable:
+  NuGetApiKey:
     secure: JCSjKbmeUc+H++B2Ir3UaBL/XgnL9qAyPO++t5xrfCW9ku62GhkGx4XUx59Q7PqT
     
 # Allow WMF5 (i.e. PowerShellGallery functionality)
