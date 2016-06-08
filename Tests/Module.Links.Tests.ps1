@@ -1,4 +1,6 @@
-﻿$Links = @()
+﻿#TODO: Convert to PoshSpec
+
+$Links = @()
 $MarkdownLinks = Get-ChildItem $PSScriptRoot\..\* -Include '*.md' -Recurse | Select-String '^.*\[.*\]\((http.*)\).*$' -AllMatches
 foreach ($Match in $MarkdownLinks)
 {

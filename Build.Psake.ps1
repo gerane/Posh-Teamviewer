@@ -73,21 +73,24 @@ Task Test -depends Help {
 
 Task Build -depends Test {
     $lines
-    
-    $Params = @{
-        Path = $ProjectRoot
-        Tags = 'Local'
-        Force = $true            
-    }
-    
-    Try 
+
+    if ($ENV:BHBuildSystem -ne 'Unknown')
     {
-        Invoke-PSDeploy @Verbose @Params
-    }
-    Catch
-    {
-        Throw
-    }
+        $Params = @{
+            Path = $ProjectRoot
+            Tags = 'Local'
+            Force = $true            
+        }
+        
+        Try 
+        {
+            Invoke-PSDeploy @Verbose @Params
+        }
+        Catch
+        {
+            Throw
+        }
+    } 
 }
 
 
