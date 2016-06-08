@@ -1,7 +1,7 @@
 ﻿#TODO: Convert to PoshSpec
 
 $Links = @()
-$MarkdownLinks = gci 'C:\Github\Posh-Teamviewer\*' -Include '*.md' -Recurse | Select-String '^.*\[.*\]\((http.*)\).*$' -AllMatches
+$MarkdownLinks = Get-ChildItem $PSScriptRoot\..\* -Include '*.md' -Recurse | Select-String '^.*\[.*\]\((http.*)\).*$' -AllMatches
 foreach ($Match in $MarkdownLinks)
 {
     $Links += @{$Match.Matches.Groups.value[1] = $Match.Path}
