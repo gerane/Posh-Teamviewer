@@ -14,4 +14,4 @@ build: false
 
 #Kick off the CI/CD pipeline
 test_script:
-  - ps: $result = . .\Build.ps1; exit !$result
+  - ps: . .\Build.ps1
