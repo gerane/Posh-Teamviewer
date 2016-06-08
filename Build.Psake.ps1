@@ -76,7 +76,7 @@ Task Test -depends Help {
 Task Build -depends Test {
     $lines
 
-    if ($ENV:BHBuildSystem -ne 'Unknown')
+    if ($ENV:BHBuildSystem -eq 'Unknown')
     {
         $Params = @{
             Path = $ProjectRoot

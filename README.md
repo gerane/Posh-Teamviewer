@@ -1,4 +1,5 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/d5kxul1k3uctqt5j/branch/master?svg=true)](https://ci.appveyor.com/project/gerane/posh-teamviewer/branch/master)
+[![Documentation Status](https://readthedocs.org/projects/posh-teamviewer/badge/?version=latest)](http://posh-teamviewer.readthedocs.io/en/latest/?badge=latest)
 
 # Posh-Teamviewer Module
 
