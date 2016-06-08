@@ -140,7 +140,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 Before you can use this Command you need to set you Teamviewer AccessToken with Set-TeamviewerAccessToken or load a previously saved AccessToken with Initialize-Teamviewer.
 ## RELATED LINKS
 
-[Online Version:](https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Connect-Teamviewer.md)
+[Online Version:](https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Commands/Connect-Teamviewer.md)
 
 Initialize-Teamviewer
 

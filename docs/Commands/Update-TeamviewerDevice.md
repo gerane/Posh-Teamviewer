@@ -165,7 +165,7 @@ System.Management.Automation.SwitchParameter
 
 ## RELATED LINKS
 
-[Online Version:](https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Update-TeamviewerDevice.md)
+[Online Version:](https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Commands/Update-TeamviewerDevice.md)
 
 [Create Teamviewer Access Token](https://integrate.teamviewer.com/en/develop/api/get-started/#createScript)
 

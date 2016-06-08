@@ -62,7 +62,7 @@ Special thanks to Carlos Perez for the AccessToken Encryption Code.
 
 ## RELATED LINKS
 
-[Online Version:](https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Initialize-Teamviewer.md)
+[Online Version:](https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Commands/Initialize-Teamviewer.md)
 
 [Carlos Perez Github](https://github.com/darkoperator)
 
