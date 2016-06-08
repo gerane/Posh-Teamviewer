@@ -142,6 +142,8 @@ Before you can use this Command you need to set you Teamviewer AccessToken with 
 
 [Online Version:](https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Commands/Connect-Teamviewer.md)
 
+[ReadTheDocs](https://readthedocs.org/projects/posh-teamviewer/)
+
 Initialize-Teamviewer
 
 Set-TeamviewerAccessToken
@@ -152,7 +154,7 @@ Set-TeamviewerDeviceList
 
 [Create Teamviewer Access Token](https://integrate.teamviewer.com/en/develop/api/get-started/#createScript)
 
-[Teamviewer Api Documentation:](https://integrate.teamviewer.com/en/develop/api/)
+[Teamviewer Api Documentation](https://integrate.teamviewer.com/en/develop/api/)
 
 
 

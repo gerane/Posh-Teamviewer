@@ -83,6 +83,8 @@ Special thanks to Carlos Perez for the AccessToken Encryption Code.
 
 [Online Version:](https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Commands/Set-TeamviewerAccessToken.md)
 
+[ReadTheDocs](https://readthedocs.org/projects/posh-teamviewer/)
+
 [Carlos Perez Github](https://github.com/darkoperator)
 
 [Create Teamviewer Access Token](https://integrate.teamviewer.com/en/develop/api/get-started/#createScript)

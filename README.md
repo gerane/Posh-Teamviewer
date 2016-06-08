@@ -3,7 +3,7 @@
 
 # Posh-Teamviewer Module
 
-The Teamviewer PowerShell Module allows users to connect and edit device properties using the Teamviewer API.
+The Teamviewer PowerShell Module allows users to connect and edit device properties using the Teamviewer API. Online Documentation can be found on [ReadTheDocs](https://readthedocs.org/projects/posh-teamviewer/)
 
 ## Installation
 

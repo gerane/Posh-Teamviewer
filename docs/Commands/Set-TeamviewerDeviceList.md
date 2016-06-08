@@ -60,6 +60,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 [Online Version:](https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Commands/Set-TeamviewerDeviceList.md)
 
+[ReadTheDocs](https://readthedocs.org/projects/posh-teamviewer/)
+
 [Create Teamviewer Access Token](https://integrate.teamviewer.com/en/develop/api/get-started/#createScript)
 
 [Teamviewer Api Documentation:](https://integrate.teamviewer.com/en/develop/api/)
