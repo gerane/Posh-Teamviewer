@@ -32,6 +32,9 @@ Task Init {
 
 
 Task Help -depends Init {
+    $lines
+    "`n`tSTATUS: Building Module Help"
+
     Remove-Module $ProjectName -ErrorAction SilentlyContinue
     Import-Module "$ProjectRoot\$ProjectName\$ProjectName.psd1"
     

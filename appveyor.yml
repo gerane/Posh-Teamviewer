@@ -12,6 +12,9 @@ skip_commits:
 
 build: false
 
+before_test:
+  - ps: . .\Build.ps1
+
 #Kick off the CI/CD pipeline
 test_script:
-  - ps: . .\Build.ps1
+  - ps: Import-Module psake, BuildHelpers; Invoke-Psake .\Build.PSake.ps1; exit !($psake.build_success)

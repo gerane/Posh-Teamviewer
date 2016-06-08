@@ -5,7 +5,3 @@ Install-Module Psake, PSDeploy, Pester, BuildHelpers, PlatyPS, PSScriptAnalyzer 
 Import-Module Psake, BuildHelpers, PlatyPS, PSDeploy, Pester
 
 Set-BuildEnvironment
-
-Invoke-psake .\Build.PSake.ps1
-
-return $psake.build_success
