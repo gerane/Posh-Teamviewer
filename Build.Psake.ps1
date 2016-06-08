@@ -76,11 +76,18 @@ Task Build -depends Test {
     
     $Params = @{
         Path = $ProjectRoot
-        Tags = Local
+        Tags = 'Local'
         Force = $true            
     }
-
-    Invoke-PSDeploy @Verbose @Params
+    
+    Try 
+    {
+        Invoke-PSDeploy @Verbose @Params
+    }
+    Catch
+    {
+        Throw
+    }
 }
 
 
@@ -93,11 +100,18 @@ Task Deploy -Depends Build {
         $Params = @{
             Path = $ProjectRoot
             Force = $true
-            Tags = PSGallery
+            Tags = 'PSGallery'
             Recurse = $false # We keep psdeploy artifacts, avoid deploying those : )
         }
-
-        Invoke-PSDeploy @Verbose @Params
+        
+        Try
+        {
+            Invoke-PSDeploy @Verbose @Params
+        }
+        Catch
+        {
+            Throw
+        }
     }
     else
     {
