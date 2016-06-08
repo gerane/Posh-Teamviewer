@@ -3,5 +3,3 @@ repo_url: https://github.com/gerane/Posh-Teamviewer
 theme: readthedocs
 pages:
 - Home: index.md
-- Setup:
-    - Getting Started: Setup/Getting-Started.md
