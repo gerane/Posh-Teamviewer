@@ -2,6 +2,6 @@ site_name: Posh-Teamviewer Docs
 repo_url: https://github.com/gerane/Posh-Teamviewer
 theme: readthedocs
 pages:
-- Home: Home/index.md
+- Home: index.md
 - Setup:
     - Getting Started: Setup/Getting-Started.md
