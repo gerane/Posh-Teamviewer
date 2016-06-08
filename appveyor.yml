@@ -17,4 +17,4 @@ before_test:
 
 #Kick off the CI/CD pipeline
 test_script:
-  - ps: Import-Module psake, BuildHelpers; Invoke-Psake .\Build.PSake.ps1; exit !($psake.build_success)
+  - ps: Import-Module psake, BuildHelpers; Invoke-Psake .\Build.PSake.ps1; exit ( [int]( -not $psake.build_success ) )
