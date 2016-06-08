@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/d5kxul1k3uctqt5j/branch/master?svg=true)](https://ci.appveyor.com/project/gerane/posh-teamviewer/branch/master)
+
 # Posh-Teamviewer Module
 
 The Teamviewer PowerShell Module allows users to connect and edit device properties using the Teamviewer API.
