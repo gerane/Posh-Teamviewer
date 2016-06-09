@@ -74,7 +74,7 @@ Task Test -depends Help {
 
 
 Task Build -depends Test {
-    $lines
+    
 
     if ($ENV:BHBuildSystem -eq 'Unknown')
     {
@@ -84,6 +84,9 @@ Task Build -depends Test {
             Force = $true            
         }
         
+        $lines
+        "`n`tSTATUS: Building Local Module"
+
         Try 
         {
             Invoke-PSDeploy @Verbose @Params
@@ -97,7 +100,6 @@ Task Build -depends Test {
 
 
 Task Deploy -Depends Build {
-    $lines
 
     # Gate deployment
     if ($ENV:BHBuildSystem -ne 'Unknown' -and $ENV:BHBranchName -eq "master" -and $ENV:BHCommitMessage -match '!deploy')
@@ -109,6 +111,9 @@ Task Deploy -Depends Build {
             Recurse = $false # We keep psdeploy artifacts, avoid deploying those : )
         }
         
+        $lines
+        "`n`tSTATUS: Publishing to PSGallery"
+
         Try
         {
             Invoke-PSDeploy @Verbose @Params
