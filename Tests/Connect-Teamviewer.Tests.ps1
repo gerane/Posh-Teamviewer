@@ -5,7 +5,7 @@ Import-Module $PSScriptRoot\..\Posh-Teamviewer\Posh-TeamViewer.psd1
 InModuleScope 'Posh-Teamviewer' {
 
     Describe 'Connect-Teamviewer' {
-        $AccessToken = 'Fake-AccessTokenText123456789'
+        $AccessToken = ConvertTo-SecureString -String 'Fake-AccessTokenText123456789' -AsPlainText -Force
         $Password = ConvertTo-SecureString -String 'FakePassword' -AsPlainText -Force
 
         Context 'No Teamviewer Exe Found' {
