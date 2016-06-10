@@ -1,6 +1,7 @@
 function Resolve-TeamviewerConfigPath
 {
     [CmdletBinding()]
+    [OutputType([String])]
     param()
 
     Begin
