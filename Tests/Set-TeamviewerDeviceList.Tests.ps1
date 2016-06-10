@@ -42,14 +42,14 @@ $Global:TeamviewerAccessToken = $null
 InModuleScope 'Posh-Teamviewer' {
 
     Describe 'Set-TeamviewerDeviceList' {
-        $AccessToken = 'Fake-AccessTokenText123456789'
+        $AccessToken = ConvertTo-SecureString -String 'Fake-AccessTokenText123456789' -AsPlainText -Force
 
         Context 'Sets Global Variable' {
             Mock Invoke-RestMethod { Return $MockedResults }
             
             It 'Global Access Token Should not match' {
                 $Results = $Global:TeamviewerAccessToken
-                $Results | Should Not Be 'Fake-AccessTokenText123456789'
+                $Results | Should Not Be $AccessToken
             }
 
             $Results = Set-TeamviewerDeviceList -AccessToken $AccessToken

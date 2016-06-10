@@ -16,7 +16,7 @@ function Connect-Teamviewer
         [Switch]$UpdateDeviceList,
 
         [Parameter(ParameterSetName = 'Update', Mandatory=$false)]
-        [string]$AccessToken
+        [securestring]$AccessToken
     )
 
     Begin
@@ -35,7 +35,7 @@ function Connect-Teamviewer
             }  
 
             Write-Verbose -Message "Updating Teamviewer Device List before Connecting to Device"
-            Set-TeamviewerDeviceList
+            Set-TeamviewerDeviceList -AccessToken $AccessToken
         }
 
         $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($Password)

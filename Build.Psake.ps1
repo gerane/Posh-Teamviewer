@@ -23,17 +23,28 @@ Properties {
 
 
 Task Init {
-    $lines
     Set-Location $ProjectRoot
-    "Build System Details:"
+    "$lines`nBuild System Details:"
+    
     Get-Item ENV:BH*
     "`n"
 }
 
 
-Task Help -depends Init {
-    $lines
-    "`n`tSTATUS: Building Module Help"
+Task Analyze -depends Init {    
+    "$lines`n`n`tSTATUS: Scanning for PSScriptAnalyzer Errors"
+
+    $ScanResults = Invoke-ScriptAnalyzer -Path "$ProjectRoot\$ProjectName" -Recurse -Severity Error
+
+    If ($ScanResults.count -gt 0)
+    {
+        Throw "Failed PSScriptAnalyzer Tests"
+    }
+}
+
+
+Task Help -depends Analyze {    
+    "$lines`n`n`tSTATUS: Building Module Help"
 
     Remove-Module $ProjectName -ErrorAction SilentlyContinue
     Import-Module "$ProjectRoot\$ProjectName\$ProjectName.psd1"
@@ -51,13 +62,10 @@ Task Help -depends Init {
 
 
 Task Test -depends Help {
-    $lines
-    "`n`tSTATUS: Testing with PowerShell $PSVersion"
-
-    # Gather test results. Store them in a variable and file
-    $TestResults = Invoke-Pester -Path $ProjectRoot\Tests -PassThru -PesterOption @{IncludeVSCodeMarker=$true} -OutputFormat NUnitXml -OutputFile "$ProjectRoot\$TestFile"
+    "$lines`n`n`tSTATUS: Testing with PowerShell $PSVersion"
     
-    # In Appveyor?  Upload our tests! #Abstract this into a function?
+    $TestResults = Invoke-Pester -Path $ProjectRoot\Tests -PassThru -PesterOption @{IncludeVSCodeMarker=$true} -OutputFormat NUnitXml -OutputFile "$ProjectRoot\$TestFile"
+        
     If($ENV:BHBuildSystem -eq 'AppVeyor')
     {
         (New-Object 'System.Net.WebClient').UploadFile("https://ci.appveyor.com/api/testresults/nunit/$($env:APPVEYOR_JOB_ID)","$ProjectRoot\$TestFile" )
@@ -75,48 +83,31 @@ Task Test -depends Help {
 
 Task Build -depends Test {
     
-
     if ($ENV:BHBuildSystem -eq 'Unknown')
     {
-        $Params = @{
-            Path = $ProjectRoot
-            Tags = 'Local'
-            Force = $true            
-        }
-        
-        $lines
-        "`n`tSTATUS: Building Local Module"
+        "$lines`n`n`tSTATUS: Building Local Module"
 
         Try 
-        {
-            Invoke-PSDeploy @Verbose @Params
+        { 
+            Invoke-PSDeploy @Verbose -Tags Local -Force 
         }
-        Catch
-        {
-            Throw
+        Catch 
+        { 
+            Throw 
         }
     } 
 }
 
 
 Task Deploy -Depends Build {
-
-    # Gate deployment
+    
     if ($ENV:BHBuildSystem -ne 'Unknown' -and $ENV:BHBranchName -eq "master" -and $ENV:BHCommitMessage -match '!deploy')
-    {
-        $Params = @{
-            Path = $ProjectRoot
-            Force = $true
-            Tags = 'PSGallery'
-            Recurse = $false # We keep psdeploy artifacts, avoid deploying those : )
-        }
-        
-        $lines
-        "`n`tSTATUS: Publishing to PSGallery"
+    {   
+        "$lines`n`n`tSTATUS: Publishing to PSGallery"
 
         Try
         {
-            Invoke-PSDeploy @Verbose @Params
+            Invoke-PSDeploy @Verbose -Force -Tags 'PSGallery'
         }
         Catch
         {
@@ -136,92 +127,4 @@ Task Deploy -Depends Build {
 Task ? -description 'Lists the available tasks' {
     "Available tasks:"
     $psake.context.Peek().tasks.Keys | Sort
-}
-
-
-
-function Get-NuGetApiKey
-{
-    param 
-    (
-        [parameter(Mandatory=$false)]
-        [string]$NuGetApiKey,
-
-        [parameter(Mandatory=$true)]
-        [ValidateNotNull()]
-        [string]$EncryptedApiKeyPath
-    )
-
-    Process
-    {
-        $NuGetConfigPath = Split-Path -Path $EncryptedApiKeyPath -Parent
-        
-        if (!$PSBoundParameters.ContainsKey('NuGetApiKey'))
-        {
-            $StoredApiKey = $null            
-            
-            If (Test-Path -Path $EncryptedApiKeyPath)
-            {
-                Write-Verbose -Message "Importing Encrypted NuGet ApiKey"
-                
-                $StoredApiKey = Get-Content -Path $EncryptedApiKeyPath                
-                $SaltBytes = Get-Content -Encoding Byte -Path "$($NuGetConfigPath)\salt.rnd"
-                
-                $Credentials = Get-Credential -UserName user -Message 'NuGet ApiKey Password'
-                
-                $Rfc2898Deriver = New-Object System.Security.Cryptography.Rfc2898DeriveBytes -ArgumentList $Credentials.GetNetworkCredential().Password, $SaltBytes, 10000
-                $KeyBytes  = $Rfc2898Deriver.GetBytes(32)
-
-                $SecString = ConvertTo-SecureString -Key $KeyBytes $StoredApiKey
-
-                # Decrypt the secure string.
-                $SecureStringToBSTR = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($SecString)
-                $NuGetApiKey = [Runtime.InteropServices.Marshal]::PtrToStringAuto($SecureStringToBSTR)
-            }
-            else 
-            {
-                $NewApiKey = Get-Credential -Message "Enter your NuGet API Key in the password field (or nothing, this isn't used yet in the preview)" -UserName "NuGet ApiKey"
-                $NuGetApiKey = $NewApiKey.GetNetworkCredential().Password
-            }
-        }
-
-        if (!$StoredApiKey)
-        {
-            $SecureKeyString = ConvertTo-SecureString -String $NuGetApiKey -AsPlainText -Force    
-
-            # Generate a random secure Salt
-            $SaltBytes = New-Object byte[] 32
-            $RNG = New-Object System.Security.Cryptography.RNGCryptoServiceProvider
-            $RNG.GetBytes($SaltBytes)
-
-            $Credentials = Get-Credential -UserName user -Message 'NuGet ApiKey Password'
-
-            # Derive Key, IV and Salt from Key
-            $Rfc2898Deriver = New-Object System.Security.Cryptography.Rfc2898DeriveBytes -ArgumentList $Credentials.GetNetworkCredential().Password, $SaltBytes, 10000
-            $KeyBytes  = $Rfc2898Deriver.GetBytes(32)
-
-            $EncryptedString = $SecureKeyString | ConvertFrom-SecureString -key $KeyBytes
-        
-        
-            if (!(Test-Path -Path $NuGetConfigPath))
-            {
-                Write-Verbose -Message 'Seems this is the first time the config has been set.'
-                Write-Verbose -Message "Creating folder $($NuGetConfigPath)"
-
-                $Null = New-Item -ItemType directory -Path $NuGetConfigPath
-            }
-
-            Write-Verbose -Message "Saving the information to configuration file $($EncryptedApiKeyPath)"
-
-            "$($EncryptedString)"  | Set-Content  "$($EncryptedApiKeyPath)" -Force
-
-            # Saving salt in to the file.
-            Set-Content -Value $SaltBytes -Encoding Byte -Path "$($NuGetConfigPath)\salt.rnd" -Force
-        }
-
-        Write-Verbose -Message "Setting Variable: Global:NuGetApiKey"
-        $Global:NuGetApiKey = $NugetApiKey
-        
-        Return $NuGetApiKey
-    }
 }

@@ -20,7 +20,7 @@ Function Update-TeamviewerDevice
         [Switch]$UpdateDeviceList,
 
         [Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$false)]
-        [string]$AccessToken
+        [securestring]$AccessToken
     )
 
     Begin
@@ -34,12 +34,15 @@ Function Update-TeamviewerDevice
         elseif ((Test-Path variable:Global:TeamviewerAccessToken ) -and !($AccessToken))
         {
             $AccessToken = $Global:TeamviewerAccessToken
-        }  
+        }
+
+        $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($AccessToken)
+        $PlainAccessToken = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
 
         if ($PSBoundParameters.ContainsKey('UpdateDeviceList'))
         {
             Write-Verbose -Message "Updating Teamviewer Device List before Updating Device"
-            Set-TeamviewerDeviceList
+            Set-TeamviewerDeviceList -AccessToken $AccessToken
         }
     }
 
@@ -57,7 +60,7 @@ Function Update-TeamviewerDevice
             Throw $Error[0]
         }
 
-        $Headers = @{ 'Authorization' = "Bearer $AccessToken" }
+        $Headers = @{ 'Authorization' = "Bearer $PlainAccessToken" }
         $ContetType = 'application/json; charset=utf-8'
         $Uri = 'https://webapi.teamviewer.com/api/v1/devices/' + $deviceId
         
@@ -73,7 +76,7 @@ Function Update-TeamviewerDevice
         
         if ($PSBoundParameters.ContainsKey('Password')) 
         { 
-            Write-Verbose -Message "Adding Password Field: [$Password]"
+            Write-Verbose -Message "Adding Password Field"
             $deviceFields.password = $Password 
         }
     

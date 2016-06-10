@@ -19,8 +19,8 @@
 <maml:Description><maml:para>The Teamviewer Access Token.
 </maml:para>
 </maml:Description>
-<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-<dev:type><maml:name>String</maml:name>
+<command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+<dev:type><maml:name>SecureString</maml:name>
 <maml:uri /></dev:type>
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
@@ -43,7 +43,7 @@
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
 <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>UpdateDeviceList</maml:name>
-<maml:Description><maml:para>Update the Devices List Global Variable that the Device information is stored. Teamviewer accounts with a large device list can take a very long time to send a response back with Device Ids. To get around this Device information is gathered and stored when Initialize-Teamviewer is ran to decrypt the Teamviewer Access Token. This allows quick Device information look up. If the information needs to be updated you can either add this switch.
+<maml:Description><maml:para>Update the Devices List Global Variable that the Device information is stored. Teamviewer accounts with a large device list can take a very long time to send a response back with Device Ids. To get around this Device information is gathered and stored when Initialize-Teamviewer is ran to decrypt the Teamviewer Access Token. This allows quick Device information look up.
 </maml:para>
 </maml:Description>
 <dev:type><maml:name>SwitchParameter</maml:name>
@@ -56,8 +56,8 @@
 <maml:Description><maml:para>The Teamviewer Access Token.
 </maml:para>
 </maml:Description>
-<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-<dev:type><maml:name>String</maml:name>
+<command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+<dev:type><maml:name>SecureString</maml:name>
 <maml:uri /></dev:type>
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
@@ -80,7 +80,7 @@
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
 <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>UpdateDeviceList</maml:name>
-<maml:Description><maml:para>Update the Devices List Global Variable that the Device information is stored. Teamviewer accounts with a large device list can take a very long time to send a response back with Device Ids. To get around this Device information is gathered and stored when Initialize-Teamviewer is ran to decrypt the Teamviewer Access Token. This allows quick Device information look up. If the information needs to be updated you can either add this switch.
+<maml:Description><maml:para>Update the Devices List Global Variable that the Device information is stored. Teamviewer accounts with a large device list can take a very long time to send a response back with Device Ids. To get around this Device information is gathered and stored when Initialize-Teamviewer is ran to decrypt the Teamviewer Access Token. This allows quick Device information look up.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
@@ -139,13 +139,22 @@ PS C:\&gt; Connect-Teamviewer -ComputerName $ComputerList</dev:code>
 </dev:remarks>
 </command:example>
 </command:examples>
-<command:relatedLinks><maml:navigationLink><maml:linkText>Online Version:</maml:linkText>
-<maml:uri>https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Connect-Teamviewer.md</maml:uri>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Online Version</maml:linkText>
+<maml:uri>http://posh-teamviewer.readthedocs.io/en/latest/Commands/Connect-Teamviewer/</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Markdown Version</maml:linkText>
+<maml:uri>https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Commands/Connect-Teamviewer.md</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Documentation</maml:linkText>
+<maml:uri>https://readthedocs.org/projects/posh-teamviewer/</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>PSGallery</maml:linkText>
+<maml:uri>https://www.powershellgallery.com/packages/posh-teamviewer/</maml:uri>
 </maml:navigationLink>
 <maml:navigationLink><maml:linkText>Create Teamviewer Access Token</maml:linkText>
 <maml:uri>https://integrate.teamviewer.com/en/develop/api/get-started/#createScript</maml:uri>
 </maml:navigationLink>
-<maml:navigationLink><maml:linkText>Teamviewer Api Documentation:</maml:linkText>
+<maml:navigationLink><maml:linkText>Teamviewer Api Documentation</maml:linkText>
 <maml:uri>https://integrate.teamviewer.com/en/develop/api/</maml:uri>
 </maml:navigationLink>
 </command:relatedLinks>
@@ -158,7 +167,7 @@ PS C:\&gt; Connect-Teamviewer -ComputerName $ComputerList</dev:code>
 </maml:para>
 </maml:description>
 </command:details>
-<maml:description><maml:para>Reads the Teamviewer AccessToken stored in the Users $env:Appdata\Teamviewer Folder and sets a Global variable with it's value. Queries the Teamviewer Api to create a Device List and stores it as a Global variable.
+<maml:description><maml:para>Reads the Teamviewer AccessToken stored in the Users $env:Appdata\Teamviewer Folder and sets a Global variable with it's SecureString value. Queries the Teamviewer Api to create a Device List and stores it as a Global variable.
 </maml:para>
 </maml:description>
 <command:syntax><command:syntaxItem><maml:name>Initialize-Teamviewer</maml:name>
@@ -203,7 +212,7 @@ PS C:\&gt; Connect-Teamviewer -ComputerName $ComputerList</dev:code>
 </maml:alertSet>
 <command:examples><command:example><maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
 <dev:code>PS C:\&gt; Initialize-Teamviewer -MasterPassword $SecureString</dev:code>
-<dev:remarks><maml:para>Reads the Teamviewer AccessToken and sets the $Global:TeamviewerAccessToken variable. Builds a Device List and sets it as $Global:TeamviewerDeviceList Variable
+<dev:remarks><maml:para>Reads the Teamviewer AccessToken and sets the $Global:TeamviewerAccessToken variable with it's SecureString Value. Builds a Device List and sets it as $Global:TeamviewerDeviceList Variable
 </maml:para>
 </dev:remarks>
 </command:example>
@@ -214,8 +223,17 @@ PS C:\&gt; Connect-Teamviewer -ComputerName $ComputerList</dev:code>
 </dev:remarks>
 </command:example>
 </command:examples>
-<command:relatedLinks><maml:navigationLink><maml:linkText>Online Version:</maml:linkText>
-<maml:uri>https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Initialize-Teamviewer.md</maml:uri>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Online Version</maml:linkText>
+<maml:uri>http://posh-teamviewer.readthedocs.io/en/latest/Commands/Initialize-Teamviewer/</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Markdown Version</maml:linkText>
+<maml:uri>https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Commands/Initialize-Teamviewer.md</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Documentation</maml:linkText>
+<maml:uri>https://readthedocs.org/projects/posh-teamviewer/</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>PSGallery</maml:linkText>
+<maml:uri>https://www.powershellgallery.com/packages/posh-teamviewer/</maml:uri>
 </maml:navigationLink>
 <maml:navigationLink><maml:linkText>Carlos Perez Github</maml:linkText>
 <maml:uri>https://github.com/darkoperator</maml:uri>
@@ -232,11 +250,11 @@ PS C:\&gt; Connect-Teamviewer -ComputerName $ComputerList</dev:code>
 <command:details><command:name>Set-TeamviewerAccessToken</command:name>
 <command:verb>Set</command:verb>
 <command:noun>TeamviewerAccessToken</command:noun>
-<maml:description><maml:para>Encrypts the User's Teamviewer AccessToken and sets the value as a Global Variable.
+<maml:description><maml:para>Encrypts the User's Teamviewer AccessToken and sets the SecureString value as a Global Variable.
 </maml:para>
 </maml:description>
 </command:details>
-<maml:description><maml:para>Encrypts the User's Teamviewer AccessToken with a Master Password and sets the value as `$Global:TeamviewerAccessToken Variable.
+<maml:description><maml:para>Encrypts the User's Teamviewer AccessToken with a Master Password and sets the SecureString value as $Global:TeamviewerAccessToken Variable.
 </maml:para>
 </maml:description>
 <command:syntax><command:syntaxItem><maml:name>Set-TeamviewerAccessToken</maml:name>
@@ -253,8 +271,8 @@ PS C:\&gt; Connect-Teamviewer -ComputerName $ComputerList</dev:code>
 <maml:Description><maml:para>The Teamviewer Access Token.
 </maml:para>
 </maml:Description>
-<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-<dev:type><maml:name>String</maml:name>
+<command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+<dev:type><maml:name>SecureString</maml:name>
 <maml:uri /></dev:type>
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
@@ -264,8 +282,8 @@ PS C:\&gt; Connect-Teamviewer -ComputerName $ComputerList</dev:code>
 <maml:Description><maml:para>The Teamviewer Access Token.
 </maml:para>
 </maml:Description>
-<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-<dev:type><maml:name>String</maml:name>
+<command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+<dev:type><maml:name>SecureString</maml:name>
 <maml:uri /></dev:type>
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
@@ -298,20 +316,29 @@ PS C:\&gt; Connect-Teamviewer -ComputerName $ComputerList</dev:code>
 </maml:alert>
 </maml:alertSet>
 <command:examples><command:example><maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
-<dev:code>PS C:\&gt; Set-TeamviewerAccessToken -AccessToken '1234-SWDwf23vawef4122345asfg' -MasterPassword $SecureString</dev:code>
+<dev:code>PS C:\&gt; Set-TeamviewerAccessToken -AccessToken $SecureAccessTokenString -MasterPassword $SecureString</dev:code>
 <dev:remarks><maml:para>Sets the AccessToken using the supplied Secure String Password.
 </maml:para>
 </dev:remarks>
 </command:example>
 <command:example><maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
-<dev:code>PS C:\&gt; Set-TeamviewerAccessToken -AccessToken '1234-SWDwf23vawef4122345asfg'</dev:code>
-<dev:remarks><maml:para>Prompts the User for their Master Password and sets the AccessToken.
+<dev:code>PS C:\&gt; Set-TeamviewerAccessToken</dev:code>
+<dev:remarks><maml:para>Prompts the User for their Master Password and AccessToken.
 </maml:para>
 </dev:remarks>
 </command:example>
 </command:examples>
-<command:relatedLinks><maml:navigationLink><maml:linkText>Online Version:</maml:linkText>
-<maml:uri>https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Set-TeamviewerAccessToken.md</maml:uri>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Online Version</maml:linkText>
+<maml:uri>http://posh-teamviewer.readthedocs.io/en/latest/Commands/Set-TeamviewerAccessToken/</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Markdown Version</maml:linkText>
+<maml:uri>https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Commands/Set-TeamviewerAccessToken.md</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Documentation</maml:linkText>
+<maml:uri>https://readthedocs.org/projects/posh-teamviewer/</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>PSGallery</maml:linkText>
+<maml:uri>https://www.powershellgallery.com/packages/posh-teamviewer/</maml:uri>
 </maml:navigationLink>
 <maml:navigationLink><maml:linkText>Carlos Perez Github</maml:linkText>
 <maml:uri>https://github.com/darkoperator</maml:uri>
@@ -319,7 +346,7 @@ PS C:\&gt; Connect-Teamviewer -ComputerName $ComputerList</dev:code>
 <maml:navigationLink><maml:linkText>Create Teamviewer Access Token</maml:linkText>
 <maml:uri>https://integrate.teamviewer.com/en/develop/api/get-started/#createScript</maml:uri>
 </maml:navigationLink>
-<maml:navigationLink><maml:linkText>Teamviewer Api Documentation:</maml:linkText>
+<maml:navigationLink><maml:linkText>Teamviewer Api Documentation</maml:linkText>
 <maml:uri>https://integrate.teamviewer.com/en/develop/api/</maml:uri>
 </maml:navigationLink>
 </command:relatedLinks>
@@ -340,8 +367,8 @@ PS C:\&gt; Connect-Teamviewer -ComputerName $ComputerList</dev:code>
 <maml:Description><maml:para>The Teamviewer Access Token.
 </maml:para>
 </maml:Description>
-<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-<dev:type><maml:name>String</maml:name>
+<command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+<dev:type><maml:name>SecureString</maml:name>
 <maml:uri /></dev:type>
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
@@ -351,8 +378,8 @@ PS C:\&gt; Connect-Teamviewer -ComputerName $ComputerList</dev:code>
 <maml:Description><maml:para>The Teamviewer Access Token.
 </maml:para>
 </maml:Description>
-<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-<dev:type><maml:name>String</maml:name>
+<command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+<dev:type><maml:name>SecureString</maml:name>
 <maml:uri /></dev:type>
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
@@ -382,8 +409,17 @@ PS C:\&gt; Connect-Teamviewer -ComputerName $ComputerList</dev:code>
 </dev:remarks>
 </command:example>
 </command:examples>
-<command:relatedLinks><maml:navigationLink><maml:linkText>Online Version:</maml:linkText>
-<maml:uri>https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Set-TeamviewerDeviceList.md</maml:uri>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Online Version</maml:linkText>
+<maml:uri>http://posh-teamviewer.readthedocs.io/en/latest/Commands/Set-TeamviewerDeviceList/</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Markdown Version</maml:linkText>
+<maml:uri>https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Commands/Set-TeamviewerDeviceList.md</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Documentation</maml:linkText>
+<maml:uri>https://readthedocs.org/projects/posh-teamviewer/</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>PSGallery</maml:linkText>
+<maml:uri>https://www.powershellgallery.com/packages/posh-teamviewer/</maml:uri>
 </maml:navigationLink>
 <maml:navigationLink><maml:linkText>Create Teamviewer Access Token</maml:linkText>
 <maml:uri>https://integrate.teamviewer.com/en/develop/api/get-started/#createScript</maml:uri>
@@ -445,13 +481,13 @@ PS C:\&gt; Connect-Teamviewer -ComputerName $ComputerList</dev:code>
 <maml:Description><maml:para>The Teamviewer AccessToken
 </maml:para>
 </maml:Description>
-<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-<dev:type><maml:name>String</maml:name>
+<command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+<dev:type><maml:name>SecureString</maml:name>
 <maml:uri /></dev:type>
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
 <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>UpdateDeviceList</maml:name>
-<maml:Description><maml:para>Update the Devices List Global Variable that the Device information is stored. Teamviewer accounts with a large device list can take a very long time to send a response back with Device Ids. To get around this Device information is gathered and stored when Initialize-Teamviewer is ran to decrypt the Teamviewer Access Token. This allows quick Device information look up. If the information needs to be updated you can either add this switch.
+<maml:Description><maml:para>Update the Devices List Global Variable that the Device information is stored. Teamviewer accounts with a large device list can take a very long time to send a response back with Device Ids. To get around this Device information is gathered and stored when Initialize-Teamviewer is ran to decrypt the Teamviewer Access Token. This allows quick Device information look up.
 </maml:para>
 </maml:Description>
 <dev:type><maml:name>SwitchParameter</maml:name>
@@ -464,8 +500,8 @@ PS C:\&gt; Connect-Teamviewer -ComputerName $ComputerList</dev:code>
 <maml:Description><maml:para>The Teamviewer AccessToken
 </maml:para>
 </maml:Description>
-<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-<dev:type><maml:name>String</maml:name>
+<command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+<dev:type><maml:name>SecureString</maml:name>
 <maml:uri /></dev:type>
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
@@ -506,7 +542,7 @@ PS C:\&gt; Connect-Teamviewer -ComputerName $ComputerList</dev:code>
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
 <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>UpdateDeviceList</maml:name>
-<maml:Description><maml:para>Update the Devices List Global Variable that the Device information is stored. Teamviewer accounts with a large device list can take a very long time to send a response back with Device Ids. To get around this Device information is gathered and stored when Initialize-Teamviewer is ran to decrypt the Teamviewer Access Token. This allows quick Device information look up. If the information needs to be updated you can either add this switch.
+<maml:Description><maml:para>Update the Devices List Global Variable that the Device information is stored. Teamviewer accounts with a large device list can take a very long time to send a response back with Device Ids. To get around this Device information is gathered and stored when Initialize-Teamviewer is ran to decrypt the Teamviewer Access Token. This allows quick Device information look up.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
@@ -546,8 +582,17 @@ PS C:\&gt; Connect-Teamviewer -ComputerName $ComputerList</dev:code>
 </dev:remarks>
 </command:example>
 </command:examples>
-<command:relatedLinks><maml:navigationLink><maml:linkText>Online Version:</maml:linkText>
-<maml:uri>https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Update-TeamviewerDevice.md</maml:uri>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Online Version</maml:linkText>
+<maml:uri>http://posh-teamviewer.readthedocs.io/en/latest/Commands/Set-TeamviewerDeviceList/</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Markdown Version</maml:linkText>
+<maml:uri>https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Commands/Set-TeamviewerDeviceList.md</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Documentation</maml:linkText>
+<maml:uri>https://readthedocs.org/projects/posh-teamviewer/</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>PSGallery</maml:linkText>
+<maml:uri>https://www.powershellgallery.com/packages/posh-teamviewer/</maml:uri>
 </maml:navigationLink>
 <maml:navigationLink><maml:linkText>Create Teamviewer Access Token</maml:linkText>
 <maml:uri>https://integrate.teamviewer.com/en/develop/api/get-started/#createScript</maml:uri>

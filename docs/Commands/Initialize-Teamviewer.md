@@ -13,7 +13,7 @@ Initialize-Teamviewer [-MasterPassword] <SecureString> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Reads the Teamviewer AccessToken stored in the Users $env:Appdata\Teamviewer Folder and sets a Global variable with it's value. Queries the Teamviewer Api to create a Device List and stores it as a Global variable.
+Reads the Teamviewer AccessToken stored in the Users $env:Appdata\Teamviewer Folder and sets a Global variable with it's SecureString value. Queries the Teamviewer Api to create a Device List and stores it as a Global variable.
 ## EXAMPLES
 
 ### -------------------------- EXAMPLE 1 --------------------------
@@ -21,7 +21,7 @@ Reads the Teamviewer AccessToken stored in the Users $env:Appdata\Teamviewer Fol
 PS C:\> Initialize-Teamviewer -MasterPassword $SecureString
 ```
 
-Reads the Teamviewer AccessToken and sets the $Global:TeamviewerAccessToken variable. Builds a Device List and sets it as $Global:TeamviewerDeviceList Variable
+Reads the Teamviewer AccessToken and sets the $Global:TeamviewerAccessToken variable with it's SecureString Value. Builds a Device List and sets it as $Global:TeamviewerDeviceList Variable
 ### -------------------------- EXAMPLE 2 --------------------------
 ```
 PS C:\> Initialize-Teamviewer
@@ -62,9 +62,13 @@ Special thanks to Carlos Perez for the AccessToken Encryption Code.
 
 ## RELATED LINKS
 
-[Online Version:](https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Commands/Initialize-Teamviewer.md)
+[Online Version](http://posh-teamviewer.readthedocs.io/en/latest/Commands/Initialize-Teamviewer/)
 
-[ReadTheDocs](https://readthedocs.org/projects/posh-teamviewer/)
+[Markdown Version](https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Commands/Initialize-Teamviewer.md)
+
+[Documentation](https://readthedocs.org/projects/posh-teamviewer/)
+
+[PSGallery](https://www.powershellgallery.com/packages/posh-teamviewer/)
 
 [Carlos Perez Github](https://github.com/darkoperator)
 

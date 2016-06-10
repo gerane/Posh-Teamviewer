@@ -15,7 +15,7 @@ Connect-Teamviewer -ComputerName <String[]> -Password <SecureString> [<CommonPar
 
 ### Update
 ```
-Connect-Teamviewer -ComputerName <String[]> -Password <SecureString> [-UpdateDeviceList] [-AccessToken <String>]
+Connect-Teamviewer -ComputerName <String[]> -Password <SecureString> [-UpdateDeviceList] [-AccessToken <SecureString>]
  [<CommonParameters>]
 ```
 
@@ -64,7 +64,7 @@ The Teamviewer Access Token.
 
 
 ```yaml
-Type: String
+Type: SecureString
 Parameter Sets: Update
 Aliases: 
 
@@ -110,7 +110,7 @@ Accept wildcard characters: False
 ```
 
 ### -UpdateDeviceList
-Update the Devices List Global Variable that the Device information is stored. Teamviewer accounts with a large device list can take a very long time to send a response back with Device Ids. To get around this Device information is gathered and stored when Initialize-Teamviewer is ran to decrypt the Teamviewer Access Token. This allows quick Device information look up. If the information needs to be updated you can either add this switch.
+Update the Devices List Global Variable that the Device information is stored. Teamviewer accounts with a large device list can take a very long time to send a response back with Device Ids. To get around this Device information is gathered and stored when Initialize-Teamviewer is ran to decrypt the Teamviewer Access Token. This allows quick Device information look up.
 
 
 
@@ -140,9 +140,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 Before you can use this Command you need to set you Teamviewer AccessToken with Set-TeamviewerAccessToken or load a previously saved AccessToken with Initialize-Teamviewer.
 ## RELATED LINKS
 
-[Online Version:](https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Commands/Connect-Teamviewer.md)
+[Online Version](http://posh-teamviewer.readthedocs.io/en/latest/Commands/Connect-Teamviewer/)
 
-[ReadTheDocs](https://readthedocs.org/projects/posh-teamviewer/)
+[Markdown Version](https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Commands/Connect-Teamviewer.md)
+
+[Documentation](https://readthedocs.org/projects/posh-teamviewer/)
+
+[PSGallery](https://www.powershellgallery.com/packages/posh-teamviewer/)
 
 Initialize-Teamviewer
 

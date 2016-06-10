@@ -5,7 +5,7 @@ Function Set-TeamviewerDeviceList
     param
     (
         [Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$false)]
-        [string]$AccessToken
+        [securestring]$AccessToken
     )
 
     Begin
@@ -19,12 +19,15 @@ Function Set-TeamviewerDeviceList
         elseif ((Test-Path variable:Global:TeamviewerAccessToken ) -and !($AccessToken))
         {
             $AccessToken = $Global:TeamviewerAccessToken
-        }     
+        }
+
+        $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($AccessToken)
+        $PlainAccessToken = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)     
     }
 
     Process
     {                
-        $Headers = @{ 'Authorization' = "Bearer $AccessToken" }
+        $Headers = @{ 'Authorization' = "Bearer $PlainAccessToken" }
         $ContetType = 'application/json; charset=utf-8'
         $Uri = 'https://webapi.teamviewer.com/api/v1/devices/'
         

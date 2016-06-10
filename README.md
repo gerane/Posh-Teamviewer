@@ -56,7 +56,7 @@ The first way To update the Device List is to use **Update-DeviceList**. If you 
 
 ## Links
 
-- PSGallery - [Posh-Teamviewer]()
+- PSGallery - [Posh-Teamviewer](https://www.powershellgallery.com/packages/posh-teamviewer/)
 - Github - [Brandon Padgett](https://github.com/gerane)
 - Twitter - [@brandonpadgett](https://twitter.com/BrandonPadgett)
 - Website - [BrandonPadgett.com](http://brandonpadgett.com)
@@ -73,4 +73,4 @@ The first way To update the Device List is to use **Update-DeviceList**. If you 
 * [Carlos Perez](https://twitter.com/Carlos_Perez) for the ApiKey Encryption work.
 * [Stefan Stranger](https://twitter.com/sstranger) for giving me some ideas, whether he realized it or not.
 * [Warren Frame](https://twitter.com/psCookieMonster) for his awesome [PSDeploy](https://github.com/RamblingCookieMonster/PSDeploy) Module.
-* [June Blender](https://twitter.com/juneb_get_help) for her [Module Help Pester Tests](https://github.com/juneb/PowerShellHelpDeepDive)
+* [June Blender](https://twitter.com/juneb_get_help) for her [Module Help Pester Tests](https://github.com/juneb/PowerShellHelpDeepDive).

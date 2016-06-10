@@ -5,7 +5,7 @@ $Global:TeamviewerAccessToken = $null
 
 InModuleScope 'Posh-Teamviewer' {
 
-    Describe 'Initialize-Teamviewer' {
+    Describe 'Initialize-Teamviewer' {        
         $MasterPassword = ConvertTo-SecureString -String 'FakePassword' -AsPlainText -Force
 
         Context 'Sets Global AccessToken Variable' {
@@ -15,14 +15,14 @@ InModuleScope 'Posh-Teamviewer' {
 
             It 'Global Access Token Should not match' {
                 $Results = $Global:TeamviewerAccessToken
-                $Results | Should Not Be 'Fake-AccessTokenText123456789'
+                $Results | Should Be $Null
             }
 
             Initialize-Teamviewer -MasterPassword $MasterPassword
 
             It 'Sets Global Access Token Variable' {
-                $Results = $Global:TeamviewerAccessToken
-                $Results | Should Be 'Fake-AccessTokenText123456789'
+                $Results = Test-Path variable:Global:TeamviewerDeviceList
+                $Results | Should Be $true
             }
 
             It 'Decrypts Apikey' {

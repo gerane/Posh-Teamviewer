@@ -1,10 +1,13 @@
 Deploy Posh-Teamviewer {
-    By FileSystem Modules {
+    By FileSystem {
         FromSource $ENV:BHProjectName
         To "$home\Documents\WindowsPowerShell\Modules\Posh-Teamviewer"
         Tagged Prod, Module, Local
         WithOptions @{
             Mirror = $true
+        }
+        WithPostScript {
+            Import-Module -Name Posh-Teamviewer -Force
         }
     }
 
@@ -16,4 +19,13 @@ Deploy Posh-Teamviewer {
             ApiKey = $ENV:NugetApiKey
         }
     }
+
+    # By PlatyPS {
+    #     FromSource "$BHProjectPath\docs\Commands"
+    #     To "$BHProjectPath\Posh-Teamviewer\en-US"
+    #     Tagged Help
+    #     WithOptions @{
+    #         Force = $true
+    #     }
+    # }
 }

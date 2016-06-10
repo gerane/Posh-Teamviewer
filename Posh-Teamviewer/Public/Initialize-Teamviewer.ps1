@@ -38,13 +38,12 @@ function Initialize-Teamviewer
             $SecString = ConvertTo-SecureString -Key $KeyBytes $ConfigFileContent
 
             # Decrypt the secure string.
-            $SecureStringToBSTR = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($SecString)
-            $AccessToken = [Runtime.InteropServices.Marshal]::PtrToStringAuto($SecureStringToBSTR)
+            #$SecureStringToBSTR = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($SecString)
+            #$AccessToken = [Runtime.InteropServices.Marshal]::PtrToStringAuto($SecureStringToBSTR)
 
             # Set session variable with the Token.
-            Write-Verbose -Message "Setting Token $($AccessToken) to variable for use by other commands."
-        
-            $Global:TeamviewerAccessToken = $AccessToken
+            #$Global:TeamviewerAccessToken = $AccessToken
+            $Global:TeamviewerAccessToken = $SecString
         
             Write-Verbose -Message 'Token has been set.'
         }
