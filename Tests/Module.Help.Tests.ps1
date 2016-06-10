@@ -51,8 +51,12 @@ Pester module.
 	Filename:		*.Help.Tests.ps1
 	===========================================================================
 #>
+
+#Requires -Module @{ModuleName = 'Pester'; ModuleVersion = '3.4.0'}
+
+
 [ValidateNotNullOrEmpty()]$Manifest = Get-ChildItem $PSScriptRoot\..\*.psd1 -Recurse
-[ValidateScript({ Get-Module -ListAvailable -Name $_ })]$ModuleName = $Manifest.BaseName
+$ModuleName = $Manifest.BaseName
 [ValidateNotNullOrEmpty()]$RequiredVersion = ($Manifest | Select-String -Pattern "^ModuleVersion = '([\d\.]*)'$").Matches.Groups.value[1]
 
 
@@ -68,7 +72,7 @@ Pester module.
 # 	$RequiredVersion = ($Manifest | Select-String -Pattern "^ModuleVersion = '([\d\.]*)'$").Matches.Groups.value[1]
 # )
 
-#Requires -Module @{ModuleName = 'Pester'; ModuleVersion = '3.4.0'}
+
 
 <#
 .SYNOPSIS
