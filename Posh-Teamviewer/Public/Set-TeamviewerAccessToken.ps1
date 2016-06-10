@@ -5,7 +5,7 @@ function Set-TeamviewerAccessToken
     Param
     (
         [Parameter(Mandatory=$true)]
-        [string]$AccessToken,
+        [securestring]$AccessToken,
 
         [Parameter(Mandatory=$true, ValueFromPipelineByPropertyName=$true, Position=1)]
         [securestring]$MasterPassword
@@ -18,8 +18,9 @@ function Set-TeamviewerAccessToken
     
     Process
     {
-        $Global:TeamviewerAccessToken = $AccessToken
-        $SecureKeyString = ConvertTo-SecureString -String $AccessToken -AsPlainText -Force
+        #$Global:TeamviewerAccessToken = $AccessToken
+        #$SecureKeyString = ConvertTo-SecureString -String $AccessToken -AsPlainText -Force
+        $SecureKeyString = $AccessToken
 
         # Generate a random secure Salt
         $SaltBytes = New-Object byte[] 32
