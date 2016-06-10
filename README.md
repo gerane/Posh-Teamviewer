@@ -73,4 +73,4 @@ The first way To update the Device List is to use **Update-DeviceList**. If you 
 * [Carlos Perez](https://twitter.com/Carlos_Perez) for the ApiKey Encryption work.
 * [Stefan Stranger](https://twitter.com/sstranger) for giving me some ideas, whether he realized it or not.
 * [Warren Frame](https://twitter.com/psCookieMonster) for his awesome [PSDeploy](https://github.com/RamblingCookieMonster/PSDeploy) Module.
-* [June Blender](https://twitter.com/juneb_get_help) for her [Module Help Pester Tests](https://github.com/juneb/PowerShellHelpDeepDive)
+* [June Blender](https://twitter.com/juneb_get_help) for her [Module Help Pester Tests](https://github.com/juneb/PowerShellHelpDeepDive).
