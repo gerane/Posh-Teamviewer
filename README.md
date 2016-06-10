@@ -56,7 +56,7 @@ The first way To update the Device List is to use **Update-DeviceList**. If you 
 
 ## Links
 
-- PSGallery - [Posh-Teamviewer]()
+- PSGallery - [Posh-Teamviewer](https://www.powershellgallery.com/packages/posh-teamviewer/)
 - Github - [Brandon Padgett](https://github.com/gerane)
 - Twitter - [@brandonpadgett](https://twitter.com/BrandonPadgett)
 - Website - [BrandonPadgett.com](http://brandonpadgett.com)
