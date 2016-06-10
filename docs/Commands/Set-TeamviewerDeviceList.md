@@ -9,7 +9,7 @@ Creates a Device List Global Variable with Teamviewer Device Information.
 ## SYNTAX
 
 ```
-Set-TeamviewerDeviceList [[-AccessToken] <String>] [<CommonParameters>]
+Set-TeamviewerDeviceList [[-AccessToken] <SecureString>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -33,7 +33,7 @@ The Teamviewer Access Token.
 
 
 ```yaml
-Type: String
+Type: SecureString
 Parameter Sets: (All)
 Aliases: 
 
@@ -58,9 +58,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[Online Version:](https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Commands/Set-TeamviewerDeviceList.md)
+[Online Version](http://posh-teamviewer.readthedocs.io/en/latest/Commands/Set-TeamviewerDeviceList/)
 
-[ReadTheDocs](https://readthedocs.org/projects/posh-teamviewer/)
+[Markdown Version](https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Commands/Set-TeamviewerDeviceList.md)
+
+[Documentation](https://readthedocs.org/projects/posh-teamviewer/)
+
+[PSGallery](https://www.powershellgallery.com/packages/posh-teamviewer/)
 
 [Create Teamviewer Access Token](https://integrate.teamviewer.com/en/develop/api/get-started/#createScript)
 

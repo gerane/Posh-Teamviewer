@@ -10,7 +10,7 @@ Updates Properties of a Teamviewer Device.
 
 ```
 Update-TeamviewerDevice [-ComputerName] <String> [[-Description] <String>] [[-Alias] <String>]
- [[-Password] <String>] [-UpdateDeviceList] [[-AccessToken] <String>] [<CommonParameters>]
+ [[-Password] <String>] [-UpdateDeviceList] [[-AccessToken] <SecureString>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -40,7 +40,7 @@ The Teamviewer AccessToken
 
 
 ```yaml
-Type: String
+Type: SecureString
 Parameter Sets: (All)
 Aliases: 
 
@@ -132,7 +132,7 @@ Accept wildcard characters: False
 ```
 
 ### -UpdateDeviceList
-Update the Devices List Global Variable that the Device information is stored. Teamviewer accounts with a large device list can take a very long time to send a response back with Device Ids. To get around this Device information is gathered and stored when Initialize-Teamviewer is ran to decrypt the Teamviewer Access Token. This allows quick Device information look up. If the information needs to be updated you can either add this switch.
+Update the Devices List Global Variable that the Device information is stored. Teamviewer accounts with a large device list can take a very long time to send a response back with Device Ids. To get around this Device information is gathered and stored when Initialize-Teamviewer is ran to decrypt the Teamviewer Access Token. This allows quick Device information look up. 
 
 
 
@@ -165,9 +165,13 @@ System.Management.Automation.SwitchParameter
 
 ## RELATED LINKS
 
-[Online Version:](https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Commands/Update-TeamviewerDevice.md)
+[Online Version](http://posh-teamviewer.readthedocs.io/en/latest/Commands/Set-TeamviewerDeviceList/)
 
-[ReadTheDocs](https://readthedocs.org/projects/posh-teamviewer/)
+[Markdown Version](https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Commands/Set-TeamviewerDeviceList.md)
+
+[Documentation](https://readthedocs.org/projects/posh-teamviewer/)
+
+[PSGallery](https://www.powershellgallery.com/packages/posh-teamviewer/)
 
 [Create Teamviewer Access Token](https://integrate.teamviewer.com/en/develop/api/get-started/#createScript)
 

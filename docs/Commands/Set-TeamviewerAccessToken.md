@@ -5,29 +5,29 @@ schema: 2.0.0
 
 # Set-TeamviewerAccessToken
 ## SYNOPSIS
-Encrypts the User's Teamviewer AccessToken and sets the value as a Global Variable.
+Encrypts the User's Teamviewer AccessToken and sets the SecureString value as a Global Variable.
 ## SYNTAX
 
 ```
-Set-TeamviewerAccessToken -AccessToken <String> [-MasterPassword] <SecureString> [<CommonParameters>]
+Set-TeamviewerAccessToken -AccessToken <SecureString> [-MasterPassword] <SecureString> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Encrypts the User's Teamviewer AccessToken with a Master Password and sets the value as `$Global:TeamviewerAccessToken Variable.
+Encrypts the User's Teamviewer AccessToken with a Master Password and sets the SecureString value as $Global:TeamviewerAccessToken Variable.
 ## EXAMPLES
 
 ### -------------------------- EXAMPLE 1 --------------------------
 ```
-PS C:\> Set-TeamviewerAccessToken -AccessToken '1234-SWDwf23vawef4122345asfg' -MasterPassword $SecureString
+PS C:\> Set-TeamviewerAccessToken -AccessToken $SecureAccessTokenString -MasterPassword $SecureString
 ```
 
 Sets the AccessToken using the supplied Secure String Password.
 ### -------------------------- EXAMPLE 2 --------------------------
 ```
-PS C:\> Set-TeamviewerAccessToken -AccessToken '1234-SWDwf23vawef4122345asfg'
+PS C:\> Set-TeamviewerAccessToken
 ```
 
-Prompts the User for their Master Password and sets the AccessToken.
+Prompts the User for their Master Password and AccessToken.
 ## PARAMETERS
 
 ### -AccessToken
@@ -37,7 +37,7 @@ The Teamviewer Access Token.
 
 
 ```yaml
-Type: String
+Type: SecureString
 Parameter Sets: (All)
 Aliases: 
 
@@ -81,15 +81,19 @@ Special thanks to Carlos Perez for the AccessToken Encryption Code.
 
 ## RELATED LINKS
 
-[Online Version:](https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Commands/Set-TeamviewerAccessToken.md)
+[Online Version](http://posh-teamviewer.readthedocs.io/en/latest/Commands/Set-TeamviewerAccessToken/)
 
-[ReadTheDocs](https://readthedocs.org/projects/posh-teamviewer/)
+[Markdown Version](https://github.com/gerane/Posh-Teamviewer/blob/master/docs/Commands/Set-TeamviewerAccessToken.md)
+
+[Documentation](https://readthedocs.org/projects/posh-teamviewer/)
+
+[PSGallery](https://www.powershellgallery.com/packages/posh-teamviewer/)
 
 [Carlos Perez Github](https://github.com/darkoperator)
 
 [Create Teamviewer Access Token](https://integrate.teamviewer.com/en/develop/api/get-started/#createScript)
 
-[Teamviewer Api Documentation:](https://integrate.teamviewer.com/en/develop/api/)
+[Teamviewer Api Documentation](https://integrate.teamviewer.com/en/develop/api/)
 
 
 
