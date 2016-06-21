@@ -302,24 +302,24 @@ foreach ($command in $commands) {
                 }
             }
 			
-            foreach ($helpParm in $HelpParameterNames) {
-                # Shouldn't find extra parameters in help.
-                It "finds help parameter in code: $helpParm" {
-                    $helpParm -in $parameterNames | Should Be $true
-                }
-            }
-        }
-	    
-        Context "Help Links should be Valid for $CommandName" {            
-            $Links = $help.relatedLinks.navigationLink.uri
-        
-            foreach ($Link in $Links)
-            {
-                # Should have a valid uri if one is provided.
-                It "[$Link] should have 200 Status Code for $CommandName" {        
-                    $Results = Invoke-WebRequest -Uri $Link -UseBasicParsing
-                    $Results.StatusCode | Should Be '200'
-                }
+			foreach ($helpParm in $HelpParameterNames) {
+				# Shouldn't find extra parameters in help.
+				It "finds help parameter in code: $helpParm" {
+					$helpParm -in $parameterNames | Should Be $true
+				}
+			}
+		}
+	}
+
+    Describe "$CommandName : URL links should be valid" -Tag Links {
+        $Links = $help.relatedLinks.navigationLink.uri | Where-Object { ($_ -ne '') -AND ($_ -ne $Null) }
+
+        foreach ($Link in $Links)
+        {
+            # Uri returns OK. Doesn't verify content
+            It "[$Link] has 200 status code" {
+                $Results = Invoke-WebRequest -Uri $Link -UseBasicParsing
+                $Results.StatusCode | Should Be '200'
             }
         }
     }
