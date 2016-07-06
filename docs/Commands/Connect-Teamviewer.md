@@ -8,15 +8,15 @@ schema: 2.0.0
 Connects to a Teamviewer Device
 ## SYNTAX
 
-### List
+### List (Default)
 ```
 Connect-Teamviewer -ComputerName <String[]> -Password <SecureString> [<CommonParameters>]
 ```
 
 ### Update
 ```
-Connect-Teamviewer -ComputerName <String[]> -Password <SecureString> [-UpdateDeviceList] [-AccessToken <SecureString>]
- [<CommonParameters>]
+Connect-Teamviewer -ComputerName <String[]> -Password <SecureString> [-UpdateDeviceList]
+ [-AccessToken <SecureString>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

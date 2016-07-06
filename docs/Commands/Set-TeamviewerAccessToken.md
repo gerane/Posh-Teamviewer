@@ -78,7 +78,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 Special thanks to Carlos Perez for the AccessToken Encryption Code.
-
 ## RELATED LINKS
 
 [Online Version](http://posh-teamviewer.readthedocs.io/en/latest/Commands/Set-TeamviewerAccessToken/)

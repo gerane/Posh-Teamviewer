@@ -49,7 +49,8 @@ Task Help -depends Analyze {
     
     Try
     {
-        Invoke-PSDeploy @Verbose -Tags Help -Force
+        Import-Module "$ProjectRoot\$ProjectName\$ProjectName.psd1" -Force
+        Invoke-PSDeploy @Verbose -Tags Help
     }
     Catch
     {
