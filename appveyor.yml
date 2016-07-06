@@ -5,6 +5,10 @@ environment:
 # Allow WMF5 (i.e. PowerShellGallery functionality)
 os: WMF 5
 
+install:
+  - ps: Get-PackageProvider -Name NuGet -ForceBootstrap
+  - ps: Install-Module Psake, PSDeploy, Pester, BuildHelpers, PlatyPS, PSScriptAnalyzer -force
+  - ps: Import-Module Psake, BuildHelpers, PlatyPS, PSDeploy, Pester
 
 skip_commits:
   message: /updated readme.*|update readme.*s/
@@ -15,7 +19,7 @@ build: false
 #  - ps: . .\Build.ps1
 
 test_script:
-  - ps: . .\Build.ps1
+  - ps: Invoke-psake .\Build.Psake.ps1
 
 notifications:
   - provider: Slack

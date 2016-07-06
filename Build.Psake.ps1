@@ -2,6 +2,7 @@ Task default -depends Deploy
 
 Properties {
     Set-BuildEnvironment
+    $ErrorActionPreference = 'Stop'
 
     $ProjectRoot = $ENV:BHProjectPath
     $ProjectName = $ENV:BHProjectName

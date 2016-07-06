@@ -148,14 +148,6 @@ Before you can use this Command you need to set you Teamviewer AccessToken with 
 
 [PSGallery](https://www.powershellgallery.com/packages/posh-teamviewer/)
 
-Initialize-Teamviewer
-
-Set-TeamviewerAccessToken
-
-Update-TeamviewerDeviceList
-
-Set-TeamviewerDeviceList
-
 [Create Teamviewer Access Token](https://integrate.teamviewer.com/en/develop/api/get-started/#createScript)
 
 [Teamviewer Api Documentation](https://integrate.teamviewer.com/en/develop/api/)
