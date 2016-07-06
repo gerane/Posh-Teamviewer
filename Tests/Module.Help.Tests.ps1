@@ -271,8 +271,6 @@ foreach ($command in $commands) {
             $Common = 'Debug', 'ErrorAction', 'ErrorVariable', 'InformationAction', 'InformationVariable', 'OutBuffer', 'OutVariable',
             'PipelineVariable', 'Verbose', 'WarningAction', 'WarningVariable'
 			
-            # Get parameters. When >1 parameter with same name, 
-            # get parameter from the default parameter set, if any.
             $parameters = Get-ParametersDefaultFirst -Command $command
 			
             $parameterNames = $parameters.Name
@@ -310,8 +308,8 @@ foreach ($command in $commands) {
 			}
 		}
 	}
-
-    Describe "$CommandName : URL links should be valid" -Tag Links {
+    # -Tag Links
+    Describe "$CommandName : URL links should be valid"  {
         $Links = $help.relatedLinks.navigationLink.uri | Where-Object { ($_ -ne '') -AND ($_ -ne $Null) }
 
         foreach ($Link in $Links)
