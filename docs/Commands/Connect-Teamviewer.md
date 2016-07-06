@@ -8,15 +8,15 @@ schema: 2.0.0
 Connects to a Teamviewer Device
 ## SYNTAX
 
-### List
+### List (Default)
 ```
 Connect-Teamviewer -ComputerName <String[]> -Password <SecureString> [<CommonParameters>]
 ```
 
 ### Update
 ```
-Connect-Teamviewer -ComputerName <String[]> -Password <SecureString> [-UpdateDeviceList] [-AccessToken <SecureString>]
- [<CommonParameters>]
+Connect-Teamviewer -ComputerName <String[]> -Password <SecureString> [-UpdateDeviceList]
+ [-AccessToken <SecureString>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -147,14 +147,6 @@ Before you can use this Command you need to set you Teamviewer AccessToken with 
 [Documentation](https://readthedocs.org/projects/posh-teamviewer/)
 
 [PSGallery](https://www.powershellgallery.com/packages/posh-teamviewer/)
-
-Initialize-Teamviewer
-
-Set-TeamviewerAccessToken
-
-Update-TeamviewerDeviceList
-
-Set-TeamviewerDeviceList
 
 [Create Teamviewer Access Token](https://integrate.teamviewer.com/en/develop/api/get-started/#createScript)
 

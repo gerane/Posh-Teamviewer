@@ -2,6 +2,7 @@ Task default -depends Deploy
 
 Properties {
     Set-BuildEnvironment
+    $ErrorActionPreference = 'Stop'
 
     $ProjectRoot = $ENV:BHProjectPath
     $ProjectName = $ENV:BHProjectName
@@ -45,14 +46,14 @@ Task Analyze -depends Init {
 
 Task Help -depends Analyze {    
     "$lines`n`n`tSTATUS: Building Module Help"
-
-    Remove-Module $ProjectName -ErrorAction SilentlyContinue
-    Import-Module "$ProjectRoot\$ProjectName\$ProjectName.psd1"
     
+    Remove-Module $ProjectName -ErrorAction SilentlyContinue		
+    Import-Module "$ProjectRoot\$ProjectName\$ProjectName.psd1"		
+      		      
     Try
     {
-        New-ExternalHelp 'docs\Commands' -OutputPath "$ProjectName\en-US" -Force -ErrorAction Stop
-        Import-Module "$ProjectRoot\$ProjectName\$ProjectName.psd1" -Force
+          New-ExternalHelp 'docs\Commands' -OutputPath "$ProjectName\en-US" -Force -ErrorAction Stop
+          Import-Module "$ProjectRoot\$ProjectName\$ProjectName.psd1" -Force
     }
     Catch
     {
@@ -63,12 +64,12 @@ Task Help -depends Analyze {
 
 Task Test -depends Help {
     "$lines`n`n`tSTATUS: Testing with PowerShell $PSVersion"
-    
-    $TestResults = Invoke-Pester -Path $ProjectRoot\Tests -PassThru -PesterOption @{IncludeVSCodeMarker=$true} -OutputFormat NUnitXml -OutputFile "$ProjectRoot\$TestFile"
-        
-    If($ENV:BHBuildSystem -eq 'AppVeyor')
-    {
-        (New-Object 'System.Net.WebClient').UploadFile("https://ci.appveyor.com/api/testresults/nunit/$($env:APPVEYOR_JOB_ID)","$ProjectRoot\$TestFile" )
+           
+    $TestResults = Invoke-Pester -Path $ProjectRoot\Tests -PassThru -PesterOption @{IncludeVSCodeMarker=$true} -OutputFormat NUnitXml -OutputFile "$ProjectRoot\$TestFile" -EnableExit -Strict
+
+    If($ENV:BHBuildSystem -eq 'AppVeyor') 
+    { 
+        (New-Object 'System.Net.WebClient').UploadFile("https://ci.appveyor.com/api/testresults/nunit/$($env:APPVEYOR_JOB_ID)","$ProjectRoot\$TestFile" ) 
     }
 
     Remove-Item "$ProjectRoot\$TestFile" -Force -ErrorAction SilentlyContinue
