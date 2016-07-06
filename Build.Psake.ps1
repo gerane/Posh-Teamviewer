@@ -47,10 +47,13 @@ Task Analyze -depends Init {
 Task Help -depends Analyze {    
     "$lines`n`n`tSTATUS: Building Module Help"
     
+    Remove-Module $ProjectName -ErrorAction SilentlyContinue		
+    Import-Module "$ProjectRoot\$ProjectName\$ProjectName.psd1"		
+      		      
     Try
     {
-        Import-Module "$ProjectRoot\$ProjectName\$ProjectName.psd1" -Force
-        Invoke-PSDeploy @Verbose -Tags Help
+          New-ExternalHelp 'docs\Commands' -OutputPath "$ProjectName\en-US" -Force -ErrorAction Stop
+          Import-Module "$ProjectRoot\$ProjectName\$ProjectName.psd1" -Force
     }
     Catch
     {
