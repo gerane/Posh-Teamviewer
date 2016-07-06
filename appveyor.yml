@@ -7,9 +7,9 @@ os: WMF 5
 
 install:
   - ps: Get-PackageProvider -Name NuGet -ForceBootstrap
-  - ps: Install-Module Pester -MinimumVersion '3.4.0'
+  - ps: Install-Module Pester -MinimumVersion '3.4.0' -force
   - ps: Install-Module Psake, PSDeploy, BuildHelpers, PlatyPS, PSScriptAnalyzer -force
-  - ps: Import-Module Psake, BuildHelpers, PlatyPS, PSDeploy, Pester
+  - ps: Import-Module Psake, BuildHelpers, PlatyPS, PSDeploy, Pester -force
 
 skip_commits:
   message: /updated readme.*|update readme.*s/

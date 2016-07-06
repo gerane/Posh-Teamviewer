@@ -49,7 +49,7 @@ Task Help -depends Analyze {
     
     Try
     {
-        New-ExternalHelp 'docs\Commands' -OutputPath "$ProjectName\en-US" -Force -ErrorAction Stop
+        Invoke-PSDeploy @Verbose -Tags Help -Force
     }
     Catch
     {
