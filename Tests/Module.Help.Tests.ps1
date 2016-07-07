@@ -308,8 +308,8 @@ foreach ($command in $commands) {
 			}
 		}
 	}
-    # -Tag Links
-    Describe "$CommandName : URL links should be valid"  {
+    
+    Describe "$CommandName : URL links should be valid" -Tag Links {
         $Links = $help.relatedLinks.navigationLink.uri | Where-Object { ($_ -ne '') -AND ($_ -ne $Null) }
 
         foreach ($Link in $Links)
