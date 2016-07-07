@@ -65,7 +65,7 @@ Task Help -depends Analyze {
 Task Test -depends Help {
     "$lines`n`n`tSTATUS: Testing with PowerShell $PSVersion"
            
-    $TestResults = Invoke-Pester -Path $ProjectRoot\Tests -PassThru -PesterOption @{IncludeVSCodeMarker=$true} -OutputFormat NUnitXml -OutputFile "$ProjectRoot\$TestFile" -EnableExit -Strict
+    $TestResults = Invoke-Pester -Path $ProjectRoot\Tests -PassThru -OutputFormat NUnitXml -OutputFile "$ProjectRoot\$TestFile"
 
     If($ENV:BHBuildSystem -eq 'AppVeyor') 
     { 
