@@ -60,20 +60,6 @@ $ModuleName = $Manifest.BaseName
 [ValidateNotNullOrEmpty()]$RequiredVersion = ($Manifest | Select-String -Pattern "^ModuleVersion = '([\d\.]*)'$").Matches.Groups.value[1]
 
 
-# Param
-# (
-# 	[Parameter(Mandatory = $true)]
-# 	[ValidateScript({ Get-Module -ListAvailable -Name $_ })]
-# 	[string]
-# 	$ModuleName = $Manifest.BaseName,
-	
-# 	[Parameter(Mandatory = $false)]
-# 	[System.Version]
-# 	$RequiredVersion = ($Manifest | Select-String -Pattern "^ModuleVersion = '([\d\.]*)'$").Matches.Groups.value[1]
-# )
-
-
-
 <#
 .SYNOPSIS
 Gets command parameters; one per name. Prefers default parameter set.
@@ -229,7 +215,6 @@ $commands = Get-Command -FullyQualifiedModule $ms -CommandType Cmdlet, Function,
 
 foreach ($command in $commands) {
     $commandName = $command.Name
-<<<<<<< HEAD
 	
     # Get the module name and version of the command. Used in the Describe name.
     $commandModuleVersion = Get-CommandVersion -CommandInfo $command
@@ -240,18 +225,6 @@ foreach ($command in $commands) {
         $Help = Get-Help $commandName -ErrorAction SilentlyContinue
     }
 	
-=======
-	
-    # Get the module name and version of the command. Used in the Describe name.
-    $commandModuleVersion = Get-CommandVersion -CommandInfo $command
-	
-    # The module-qualified command fails on Microsoft.PowerShell.Archive cmdlets
-    $Help = Get-Help $ModuleName\$commandName -ErrorAction SilentlyContinue
-    if ($Help.Synopsis -like '*`[`<CommonParameters`>`]*') {
-        $Help = Get-Help $commandName -ErrorAction SilentlyContinue
-    }
-	
->>>>>>> Dev
     Describe "Test help for $commandName in $($commandModuleVersion.ModuleName) ($($commandModuleVersion.Version))" {
 		
         # If help is not found, synopsis in auto-generated help is the syntax diagram
@@ -280,21 +253,14 @@ foreach ($command in $commands) {
         }
 		
         Context "Test parameter help for $commandName" {
-<<<<<<< HEAD
 			
             $Common = 'Debug', 'ErrorAction', 'ErrorVariable', 'InformationAction', 'InformationVariable', 'OutBuffer', 'OutVariable',
             'PipelineVariable', 'Verbose', 'WarningAction', 'WarningVariable'
 			
+            # Get parameters. When >1 parameter with same name, 
+            # get parameter from the default parameter set, if any.
             $parameters = Get-ParametersDefaultFirst -Command $command
 			
-=======
-			
-            $Common = 'Debug', 'ErrorAction', 'ErrorVariable', 'InformationAction', 'InformationVariable', 'OutBuffer', 'OutVariable',
-            'PipelineVariable', 'Verbose', 'WarningAction', 'WarningVariable'
-			
-            $parameters = Get-ParametersDefaultFirst -Command $command
-			
->>>>>>> Dev
             $parameterNames = $parameters.Name
             $HelpParameterNames = $Help.Parameters.Parameter.Name | Sort-Object -Unique
 			
@@ -303,8 +269,11 @@ foreach ($command in $commands) {
                 $parameterHelp = $Help.parameters.parameter | Where-Object Name -EQ $parameterName
 				
                 # Should be a description for every parameter
-                It "gets help for parameter: $parameterName : in $commandName" {
-                    $parameterHelp.Description.Text | Should Not BeNullOrEmpty
+                if ($parameterName -ne 'Confirm' -AND $parameterName -ne 'WhatIf')
+                {
+                    It "gets help for parameter: $parameterName : in $commandName" {
+                        $parameterHelp.Description.Text | Should Not BeNullOrEmpty
+                    }
                 }
 				
                 # Required value in Help should match IsMandatory property of parameter
@@ -322,7 +291,6 @@ foreach ($command in $commands) {
                 }
             }
 			
-<<<<<<< HEAD
             foreach ($helpParm in $HelpParameterNames) {
                 # Shouldn't find extra parameters in help.
                 It "finds help parameter in code: $helpParm" {
@@ -330,27 +298,8 @@ foreach ($command in $commands) {
                 }
             }
         }
-	    
-        Context "Help Links should be Valid for $CommandName" {            
-            $Links = $help.relatedLinks.navigationLink.uri
-        
-            foreach ($Link in $Links)
-            {
-                # Should have a valid uri if one is provided.
-                It "[$Link] should have 200 Status Code for $CommandName" {        
-                    $Results = Invoke-WebRequest -Uri $Link -UseBasicParsing
-                    $Results.StatusCode | Should Be '200'
-                }
-=======
-			foreach ($helpParm in $HelpParameterNames) {
-				# Shouldn't find extra parameters in help.
-				It "finds help parameter in code: $helpParm" {
-					$helpParm -in $parameterNames | Should Be $true
-				}
-			}
-		}
-	}
-    
+    }
+
     Describe "$CommandName : URL links should be valid" -Tag Links {
         $Links = $help.relatedLinks.navigationLink.uri | Where-Object { ($_ -ne '') -AND ($_ -ne $Null) }
 
@@ -360,7 +309,6 @@ foreach ($command in $commands) {
             It "[$Link] has 200 status code" {
                 $Results = Invoke-WebRequest -Uri $Link -UseBasicParsing
                 $Results.StatusCode | Should Be '200'
->>>>>>> Dev
             }
         }
     }
